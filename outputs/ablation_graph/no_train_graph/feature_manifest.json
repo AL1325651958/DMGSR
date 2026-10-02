@@ -1,0 +1,16 @@
+{
+  "target": "NASA POWER ALLSKY_SFC_SW_DWN converted to W m-2",
+  "conditioning": {
+    "T2M": "daily near-surface air temperature, degC",
+    "PRECTOTCORR": "daily corrected precipitation, mm/day",
+    "CLOUD_AMT": "daily cloud amount, percent"
+  },
+  "time_start": "2000-01-01T00:00:00.000000000",
+  "time_end": "2014-12-31T00:00:00.000000000",
+  "days": 5479,
+  "grid": {
+    "lat": 10,
+    "lon": 10
+  },
+  "note": "NASA POWER is a satellite/reanalysis-derived product, not station measurements."
+}

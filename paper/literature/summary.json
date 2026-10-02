@@ -1,0 +1,123 @@
+{
+  "records": 276,
+  "per_bucket": {
+    "diffusion_generative": 57,
+    "classical_spatial": 47,
+    "calibration_uq": 47,
+    "remote_sensing_infill": 57,
+    "unet_comparators": 24,
+    "solar_recovery": 58
+  },
+  "per_year": {
+    "2018": 43,
+    "2019": 48,
+    "2020": 41,
+    "2021": 45,
+    "2022": 38,
+    "2023": 35,
+    "2024": 18,
+    "2025": 8
+  },
+  "venues_top": [
+    [
+      "(preprint/none)",
+      17
+    ],
+    [
+      "Remote Sensing",
+      13
+    ],
+    [
+      "Remote Sensing of Environment",
+      12
+    ],
+    [
+      "arXiv (Cornell University)",
+      11
+    ],
+    [
+      "Proceedings of the AAAI Conference on Artificial Intelligence",
+      7
+    ],
+    [
+      "Nature Communications",
+      6
+    ],
+    [
+      "Scientific Data",
+      6
+    ],
+    [
+      "Energies",
+      5
+    ],
+    [
+      "IEEE Access",
+      5
+    ],
+    [
+      "Applied Sciences",
+      5
+    ],
+    [
+      "Journal Of Big Data",
+      4
+    ],
+    [
+      "Nature",
+      4
+    ],
+    [
+      "Hydrology and earth system sciences",
+      4
+    ],
+    [
+      "Journal of Advances in Modeling Earth Systems",
+      3
+    ],
+    [
+      "ACM Computing Surveys",
+      3
+    ],
+    [
+      "IEEE Transactions on Geoscience and Remote Sensing",
+      3
+    ],
+    [
+      "Journal of Statistical Software",
+      3
+    ],
+    [
+      "PLoS Computational Biology",
+      3
+    ],
+    [
+      "Renewable and Sustainable Energy Reviews",
+      3
+    ],
+    [
+      "Sustainability",
+      3
+    ],
+    [
+      "ISPRS Journal of Photogrammetry and Remote Sensing",
+      3
+    ],
+    [
+      "International Journal of Geographical Information Systems",
+      2
+    ],
+    [
+      "Artificial Intelligence Review",
+      2
+    ],
+    [
+      "Computer Methods in Applied Mechanics and Engineering",
+      2
+    ],
+    [
+      "Journal of Hydrology",
+      2
+    ]
+  ]
+}

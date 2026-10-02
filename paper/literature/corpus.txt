@@ -1,0 +1,276 @@
+[2025] SSD-TS: Exploring the Potential of Linear State Space Models for Diffusion Models in Time Series Imputation | Hongfan Gao, Wangmeng Shen |  | cit 12 | diffusion_generative
+[2025] Self-attention-based Diffusion Model for Time-series Imputation in Partial Blackout Scenarios | Mohammad Shohidul Islam, Prasad V. Tadepalli | Proceedings of the AAAI Conference on  | cit 10 | diffusion_generative
+[2025] Residual corrective diffusion modeling for km-scale atmospheric downscaling | Morteza Mardani, Noah Brenowitz | Communications Earth & Environment | cit 83 | diffusion_generative
+[2025] Artificial intelligence for modeling and understanding extreme weather and climate events | Gustau Camps‐Valls, Miguel‐Ángel Fernández‐Torres | Nature Communications | cit 277 | diffusion_generative
+[2025] A Reliable Generative Adversarial Network Approach for Climate Downscaling and Weather Generation | Neelesh Rampal, Peter B. Gibson | Journal of Advances in Modeling Earth  | cit 42 | diffusion_generative
+[2025] A Generative Framework for Probabilistic, Spatiotemporally Coherent Downscaling of Climate Simulation | Jonathan Schmidt, Luca Schmidt | npj Climate and Atmospheric Science | cit 8 | diffusion_generative
+[2025] ST-KrigingNet: deep spatiotemporal kriging neural network for multivariate and nonstationary spatiotemporal in | Enbo Liu, Kaiqi Chen | International Journal of Geographical  | cit 3 | classical_spatial
+[2025] Conformal Prediction: A Data Perspective | Xiaofan Zhou, Baiting Chen | ACM Computing Surveys | cit 39 | calibration_uq
+[2024] Remote Sensing Object Detection in the Deep Learning Era—A Review | Shengxi Gui, Shuang Song | Remote Sensing | cit 297 | remote_sensing_infill
+[2024] A daily gap-free normalized difference vegetation index dataset from 1981 to 2023 in China | Huiwen Li, Yue Cao | Scientific Data | cit 68 | remote_sensing_infill
+[2024] Deep learning models for digital image processing: a review | R. Archana, P. S. Eliahim Jeevaraj | Artificial Intelligence Review | cit 609 | remote_sensing_infill
+[2024] MTSCI: A Conditional Diffusion Model for Multivariate Time Series Consistent Imputation | Jianping Zhou, Junhao Li |  | cit 33 | diffusion_generative
+[2024] Boundary-enhanced time series data imputation with long-term dependency diffusion models | Chunjing Xiao, Xue Jiang | Knowledge-Based Systems | cit 18 | diffusion_generative
+[2024] SaSDim:Self-Adaptive Noise Scaling Diffusion Model for Spatial Time Series Imputation | Shunyang Zhang, Senzhang Wang |  | cit 5 | diffusion_generative
+[2024] Conditional neural field latent diffusion model for generating spatiotemporal turbulence | Pan Du, Meet Hemant Parikh | Nature Communications | cit 97 | diffusion_generative
+[2024] Bayesian conditional diffusion models for versatile spatiotemporal turbulence generation | Han Gao, Xu Han | Computer Methods in Applied Mechanics  | cit 38 | diffusion_generative
+[2024] Neural differentiable modeling with diffusion-based super-resolution for two-dimensional spatiotemporal turbul | Xiantao Fan, Deepak Akhare | Computer Methods in Applied Mechanics  | cit 38 | diffusion_generative
+[2024] ChangeMamba: Remote Sensing Change Detection With Spatiotemporal State Space Model | Hongruixuan Chen, Jian Hui Song | IEEE Transactions on Geoscience and Re | cit 385 | diffusion_generative
+[2024] Adapting Segment Anything Model for Change Detection in VHR Remote Sensing Images | Lei Ding, Kun Zhu | IEEE Transactions on Geoscience and Re | cit 184 | diffusion_generative
+[2024] Change Detection Methods for Remote Sensing in the Last Decade: A Comprehensive Review | Guangliang Cheng, Yunmeng Huang | Remote Sensing | cit 255 | diffusion_generative
+[2024] Enhancing Regional Climate Downscaling through Advances in Machine Learning | Neelesh Rampal, Sanaa Hobeichi | Artificial Intelligence for the Earth  | cit 70 | diffusion_generative
+[2024] Comparison of IDW, Kriging and orographic based linear interpolations of rainfall in six rainfall regimes of E | Habtamu Tsegaye Workneh, Xuelong Chen | Journal of Hydrology Regional Studies | cit 62 | classical_spatial
+[2024] Towards reliable uncertainty quantification via deep ensemble in multi-output regression task | Sunwoong Yang, Kwanjung Yee | Engineering Applications of Artificial | cit 36 | calibration_uq
+[2024] Improving urban flood prediction using LSTM-DeepLabv3+ and Bayesian optimization with spatiotemporal feature f | Zuxiang Situ, Qi Wang | Journal of Hydrology | cit 90 | calibration_uq
+[2024] Spatiotemporal single-cell analysis decodes cellular dynamics underlying different responses to immunotherapy  | Yuqing Chen, Dongfang Wang | Cancer Cell | cit 200 | calibration_uq
+[2024] Artificial intelligence for geoscience: Progress, challenges, and perspectives | Tianjie Zhao, Sheng Wang | The Innovation | cit 359 | unet_comparators
+[2023] Developing a novel approach for missing data imputation of solar radiation: A hybrid differential evolution al | Eyyup Ensar Başakın, Ömer Ekmekcioğlu | Energy Conversion and Management | cit 30 | solar_recovery
+[2023] Expanding Tidy Data Principles to Facilitate Missing Data Exploration, Visualization and Assessment of Imputat | Nicholas John Tierney, Dianne Cook | Journal of Statistical Software | cit 250 | solar_recovery
+[2023] Application of Deep Learning to the Prediction of Solar Irradiance through Missing Data | Ramasamy Girimurugan, Periyasami Selvaraju | International Journal of Photoenergy | cit 69 | solar_recovery/solar_recovery/solar_recovery
+[2023] Machine-Learning-Based Imputation Method for Filling Missing Values in Ground Meteorological Observation Data | Cong Li, Xupeng Ren | Algorithms | cit 39 | solar_recovery
+[2023] Hourly global horizontal irradiance over West Africa: A case study of one-year satellite- and reanalysis-deriv | Windmanagda Sawadogo, Jan Bliefernicht | Renewable Energy | cit 33 | solar_recovery
+[2023] Using Enhanced Gap-Filling and Whittaker Smoothing to Reconstruct High Spatiotemporal Resolution NDVI Time Ser | Jieyu Liang, Chao Ren | ISPRS International Journal of Geo-Inf | cit 31 | remote_sensing_infill
+[2023] A survey on deep learning tools dealing with data scarcity: definitions, challenges, solutions, tips, and appl | Laith H. Alzubaidi, Jinshuai Bai | Journal Of Big Data | cit 901 | remote_sensing_infill
+[2023] Deepfake detection using deep learning methods: A systematic and comprehensive review | Arash Heidari, Nima Jafari Navimipour | Wiley Interdisciplinary Reviews Data M | cit 338 | remote_sensing_infill
+[2023] Imputation-based Time-Series Anomaly Detection with Conditional Weight-Incremental Diffusion Models | Chunjing Xiao, Zehua Gou |  | cit 109 | diffusion_generative
+[2023] Diffusion Models: A Comprehensive Survey of Methods and Applications | Ling Qiang Yang, Zhilong Zhang | ACM Computing Surveys | cit 1556 | diffusion_generative/diffusion_generative
+[2023] Diffusion models for time-series applications: a survey | Lequan Lin, Zhengkun Li | Frontiers of Information Technology &  | cit 117 | diffusion_generative/diffusion_generative
+[2023] ImDiffusion: Imputed Diffusion Models for Multivariate Time Series Anomaly Detection | Yuhang Chen, Chaoyun Zhang | Proceedings of the VLDB Endowment | cit 133 | diffusion_generative
+[2023] Density-Aware Temporal Attentive Step-wise Diffusion Model For Medical Time Series Imputation | Jingwen Xu, Fei Lyu |  | cit 12 | diffusion_generative
+[2023] PriSTI: A Conditional Diffusion Framework for Spatiotemporal Imputation | Mingzhe Liu, Han Huang |  | cit 110 | diffusion_generative
+[2023] Robust mapping of spatiotemporal trajectories and cell–cell interactions in healthy and diseased tissues | Duy Pham, Xiao Tan | Nature Communications | cit 418 | diffusion_generative
+[2023] DiffPose: SpatioTemporal Diffusion Model for Video-Based Human Pose Estimation | Runyang Feng, Yixing Lisa Gao |  | cit 48 | diffusion_generative
+[2023] Opinion Paper: “So what if ChatGPT wrote it?” Multidisciplinary perspectives on opportunities, challenges and  | Yogesh Kumar Dwivedi, Nir Kshetri | International Journal of Information M | cit 4418 | diffusion_generative
+[2023] ChatGPT for good? On opportunities and challenges of large language models for education | Enkelejda Kasneci, Kathrin Seßler | Learning and Individual Differences | cit 6760 | diffusion_generative
+[2023] Large language models encode clinical knowledge | Karan Singhal, Shekoofeh Azizi | Nature | cit 3932 | diffusion_generative
+[2023] MultiVI: deep generative model for the integration of multimodal data | Tal Ashuach, Mariano I. Gabitto | Nature Methods | cit 370 | diffusion_generative
+[2023] Hybrid forecasting: blending climate predictions with AI models | Louise J. Slater, Louise L. S. Arnal | Hydrology and earth system sciences | cit 250 | diffusion_generative
+[2023] ClimaX: A foundation model for weather and climate | Tung Thanh Nguyen, J. Brandstetter | arXiv (Cornell University) | cit 167 | diffusion_generative
+[2023] spateGAN: Spatio‐Temporal Downscaling of Rainfall Fields Using a cGAN Approach | Luca Glawion, Julius Polz | Earth and Space Science | cit 33 | diffusion_generative
+[2023] Spatiotemporal interpolation of surface chloride content for marine RC structures based on non-uniform spatiot | Renjie Wu, Jin Xia | Structural Safety | cit 26 | classical_spatial
+[2023] A regional solar forecasting approach using generative adversarial networks with solar irradiance maps | Haoran Wen, Yang Du | Renewable Energy | cit 49 | classical_spatial
+[2023] Spatiotemporal Interpolation Using Graph Neural Network | Shiqi Yao, Bo Huang | Annals of the American Association of  | cit 13 | classical_spatial
+[2023] A survey of uncertainty in deep neural networks | Jakob Gawlikowski, Cedrique Rovile Njieutcheu Tassi | Artificial Intelligence Review | cit 1388 | calibration_uq
+[2023] Semi-Supervised Deep Regression with Uncertainty Consistency and Variational Model Ensembling via Bayesian Neu | Weihang Dai, Xiaomeng Li | Proceedings of the AAAI Conference on  | cit 35 | calibration_uq
+[2023] Deep Demand Prediction: An Enhanced Conformer Model With Cold-Start Adaptation for Origin–Destination Ride-Hai | Hongyi Lin, Yixu He | IEEE Intelligent Transportation System | cit 36 | calibration_uq
+[2023] Spatiotemporally distributed frontotemporal networks for sentence reading | Oscar Woolnough, Cristian Donos | Proceedings of the National Academy of | cit 69 | calibration_uq
+[2023] Validation of uncertainty predictions in digital soil mapping | Jonas Schmidinger, G.B.M. Heuvelink | Geoderma | cit 98 | calibration_uq
+[2023] Scoring epidemiological forecasts on transformed scales | Nikos I Bosse, Sam Abbott | PLoS Computational Biology | cit 52 | calibration_uq
+[2023] Differentiable modelling to unify machine learning and physical models for geosciences | Chaopeng Shen, Alison Appling | Nature Reviews Earth & Environment | cit 469 | unet_comparators
+[2023] Scalable Spatiotemporal Graph Neural Networks | Andrea Cini, Ivan Marisca | Proceedings of the AAAI Conference on  | cit 71 | unet_comparators
+[2023] DeepBlue: Advanced convolutional neural network applications for ocean remote sensing | Haoyu Wang, Xiaofeng Li | IEEE Geoscience and Remote Sensing Mag | cit 77 | unet_comparators
+[2022] Solar Radiation Forecasting Using Machine Learning and Ensemble Feature Selection | Edna S. Solano, Payman Dehghanian | Energies | cit 82 | solar_recovery
+[2022] Grid Integration Challenges and Solution Strategies for Solar PV Systems: A Review | Md Shafiullah, Shakir D. Ahmed | IEEE Access | cit 474 | solar_recovery/solar_recovery
+[2022] Strain effects on halide perovskite solar cells | Bowen Yang, Dmitry Bogachuk | Chemical Society Reviews | cit 359 | solar_recovery
+[2022] Satellite Remote Sensing of Global Land Surface Temperature: Definition, Methods, Products, and Applications | Zhao‐Liang Li, Hua Bing Wu | Reviews of Geophysics | cit 664 | solar_recovery/remote_sensing_infill/diffusion_generative
+[2022] Mapping an Observation-Based Global Solar Irradiance Climatology across the Conterminous United States | David E. Rupp, Christopher Daly | Journal of Applied Meteorology and Cli | cit 28 | solar_recovery
+[2022] Calibration and Validation of Global Horizontal Irradiance Clear Sky Models against McClear Clear Sky Model in | Abderrahmane Mendyl, Brighton Mabasa | Applied Sciences | cit 16 | solar_recovery
+[2022] Deep learning in multimodal remote sensing data fusion: A comprehensive review | Jiaxin Li, Danfeng Hong | International Journal of Applied Earth | cit 624 | remote_sensing_infill/remote_sensing_infill
+[2022] Deep Residual Learning for Image Recognition: A Survey | Muhammad Faisal Shafiq, Zhaoquan Gu | Applied Sciences | cit 1026 | remote_sensing_infill
+[2022] Deep Learning-Based Change Detection in Remote Sensing Images: A Review | Ayesha Shafique, Guo Cao | Remote Sensing | cit 421 | remote_sensing_infill/remote_sensing_infill/diffusion_generative
+[2022] Gap-filling MODIS daily aerosol optical depth products by developing a spatiotemporal fitting algorithm | Tao Zhang, Yuyu Zhou | GIScience & Remote Sensing | cit 43 | remote_sensing_infill
+[2022] A global seamless 1 km resolution daily land surface temperature dataset (2003–2020) | Tao Zhang, Yuyu Zhou | Earth system science data | cit 190 | remote_sensing_infill
+[2022] Global spatiotemporally continuous MODIS land surface temperature dataset | Pei Yu, Tianjie Zhao | Scientific Data | cit 103 | remote_sensing_infill
+[2022] Ground-Level NO 2 Surveillance from Space Across China for High Resolution Using Interpretable Spatiotemporall | Jing Wei, Song Liu | Environmental Science & Technology | cit 367 | remote_sensing_infill
+[2022] Development of the GLASS 250-m leaf area index product (version 6) from MODIS data using the bidirectional LST | Han Ma, Shunlin Liang | Remote Sensing of Environment | cit 338 | remote_sensing_infill
+[2022] A Review of Ensemble Learning Algorithms Used in Remote Sensing Applications | Yuzhen Zhang, Jingjing Liu | Applied Sciences | cit 386 | remote_sensing_infill
+[2022] A Systematic Literature Review on Crop Yield Prediction with Deep Learning and Remote Sensing | Priyanga Muruganantham, Santoso Wibowo | Remote Sensing | cit 343 | remote_sensing_infill
+[2022] Diffusion-based Time Series Imputation and Forecasting with Structured State Space Models | Juan Miguel Lopez Alcaraz, Nils Strodthoff | arXiv (Cornell University) | cit 65 | diffusion_generative
+[2022] A Generative Deep Learning Approach to Stochastic Downscaling of Precipitation Forecasts | Lucy Harris, Andrew T. T. McRae | Journal of Advances in Modeling Earth  | cit 208 | diffusion_generative
+[2022] Increasing the accuracy and resolution of precipitation forecasts using deep generative models | Ilan Price, Stephan Rasp | arXiv (Cornell University) | cit 38 | diffusion_generative
+[2022] Bayesian Deep Learning for Spatial Interpolation in the Presence of Auxiliary Information | Charlie Kirkwood, Theo Economou | Mathematical Geosciences | cit 70 | classical_spatial
+[2022] The effects of station density in geostatistical prediction of air temperatures in Sweden: A comparison of two | Elijah Akwarandu Njoku, Patrick Etim Akpan | Resources Environment and Sustainabili | cit 26 | classical_spatial
+[2022] Graph Neural Controlled Differential Equations for Traffic Forecasting | Jeongwhan Choi, Hwangyong Choi | AAAI Publications (The Association for | cit 351 | classical_spatial
+[2022] Pre-training Enhanced Spatial-temporal Graph Neural Network for Multivariate Time Series Forecasting | Zezhi Shao, Zhao Zhang | Proceedings of the 28th ACM SIGKDD Con | cit 302 | classical_spatial
+[2022] Probabilistic photovoltaic power forecasting using a calibrated ensemble of model chains | Martin János Mayer, Dazhi Yang | Renewable and Sustainable Energy Revie | cit 81 | calibration_uq
+[2022] Spatiotemporal dynamics of noradrenaline during learned behaviour | Vincent Breton‐Provencher, Gabrielle T Drummond | Nature | cit 149 | calibration_uq
+[2022] Groundwater level prediction using machine learning models: A comprehensive review | Tao Hai, Mohammed Majeed Hameed | Neurocomputing | cit 439 | calibration_uq
+[2022] Local scale invariance and robustness of proper scoring rules | David Bolin, Jonas Wallin | Statistical Science | cit 18 | calibration_uq
+[2022] Evaluating probabilistic forecasts of extremes using continuous ranked probability score distributions | Maxime Taillardat, Anne‐Laure Fougères | International Journal of Forecasting | cit 23 | calibration_uq
+[2022] Evaluating the discrimination ability of proper multi-variate scoring rules | Carol Alexander, Michael Coulon | Annals of Operations Research | cit 16 | calibration_uq
+[2022] Proper Scoring Rules for Evaluating Density Forecasts with Asymmetric Loss Functions | Matteo Iacopini, Francesco Ravazzolo | Journal of Business and Economic Stati | cit 13 | calibration_uq
+[2022] Using U-Net network for efficient brain tumor segmentation in MRI images | Jason Walsh, Alice Othmani | Healthcare Analytics | cit 165 | unet_comparators
+[2022] Oil and gas pathway to net-zero: Review and outlook | Zhoujie Wang, Songyan Li | Energy Strategy Reviews | cit 258 | unet_comparators
+[2022] Medical Image Segmentation Review: The success of U-Net | Reza Azad, Ehsan Khodapanah Aghdam | arXiv (Cornell University) | cit 97 | unet_comparators
+[2022] A Siamese Network Based U-Net for Change Detection in High Resolution Remote Sensing Images | Tao Chen, Zhiyuan Lu | IEEE Journal of Selected Topics in App | cit 132 | unet_comparators
+[2022] A Route Map for Successful Applications of Geographically Weighted Regression | Alexis Comber, Chris Brunsdon | Geographical Analysis | cit 217 | unet_comparators
+[2022] A Hybrid Spatiotemporal Deep Model Based on CNN and LSTM for Air Pollution Prediction | Stefan Tsokov, Milena Kirilova Lazarova | Sustainability | cit 89 | unet_comparators
+[2022] Estimation of missing air pollutant data using a spatiotemporal convolutional autoencoder | I Nyoman Kusuma Wardana, Julian W. Gardner | Neural Computing and Applications | cit 29 | unet_comparators
+[2022] Spatiotemporal Reconstruction of MODIS Normalized Difference Snow Index Products Using U-Net with Partial Conv | De Xing, Jinliang Hou | Remote Sensing | cit 23 | unet_comparators
+[2021] Missing Data Imputation for Solar Radiation Using Generative Adversarial Networks | Priyanshi Khare, Rajesh Wadhvani | Algorithms for intelligent systems | cit 3 | solar_recovery
+[2021] Water-Quality Data Imputation with a High Percentage of Missing Values: A Machine Learning Approach | Rafael Rodríguez, Marcos Pastorini | Sustainability | cit 73 | solar_recovery
+[2021] Machine learning imputation of missing Mesonet temperature observations | Joseph P. Boomgard-Zagrodnik, David J. Brown | Computers and Electronics in Agricultu | cit 25 | solar_recovery
+[2021] A review and taxonomy of wind and solar energy forecasting methods based on deep learning | Ghadah Alkhayat, Rashid Mehmood | Energy and AI | cit 313 | solar_recovery
+[2021] Evaluation of Time-Series Gap-Filling Methods for Solar Irradiance Applications | Alexis Denhard, Soutir Bandyopadhyay |  | cit 8 | solar_recovery/solar_recovery
+[2021] Dye-sensitized solar cells strike back | Ana  Belen Muñoz-García, Iacopo Benesperi | Chemical Society Reviews | cit 552 | solar_recovery/solar_recovery
+[2021] Solar fuels: research and development strategies to accelerate photocatalytic CO 2 conversion into hydrocarbon | Eunhee Gong, Shahzad Ali | Energy & Environmental Science | cit 805 | solar_recovery/solar_recovery
+[2021] Changes in the Total Solar Irradiance and climatic effects | Werner K. Schmutz | Journal of Space Weather and Space Cli | cit 63 | solar_recovery
+[2021] OpenET: Filling a Critical Data Gap in Water Management for the Western United States | Forrest Melton, Justin Huntington | JAWRA Journal of the American Water Re | cit 323 | solar_recovery
+[2021] A Vision and Framework for the High Altitude Platform Station (HAPS) Networks of the Future | Güneş Karabulut Kurt, Mohammad G. Khoshkholgh | IEEE Communications Surveys & Tutorial | cit 558 | solar_recovery
+[2021] Radiation monitoring system | Katarina Karadžić | Book of Abstracts | cit 275 | solar_recovery
+[2021] Solar Radiation Prediction Using Different Machine Learning Algorithms and Implications for Extreme Climate Ev | Liexing Huang, Junfeng Kang | Frontiers in Earth Science | cit 160 | solar_recovery
+[2021] Passive, high-efficiency thermally-localized solar desalination | Lenan Zhang, Zhenyuan Xu | Energy & Environmental Science | cit 337 | solar_recovery
+[2021] A Flexible and Robust Deep Learning-Based System for Solar Irradiance Forecasting | Ignacio-Iker Prado-Rujas, Antonio García-Dopico | IEEE Access | cit 52 | solar_recovery
+[2021] Review of deep learning: concepts, CNN architectures, challenges, applications, future directions | Laith H. Alzubaidi, Jinglan Zhang | Journal Of Big Data | cit 7960 | remote_sensing_infill/calibration_uq
+[2021] Physics-informed machine learning | George Em Karniadakis, Ioannis G. Kevrekidis | Nature Reviews Physics | cit 8200 | remote_sensing_infill/diffusion_generative/classical_spatial
+[2021] A review of uncertainty quantification in deep learning: Techniques, applications and challenges | Moloud Abdar, Farhad Pourpanah | Information Fusion | cit 2710 | remote_sensing_infill/calibration_uq
+[2021] Deep learning-enabled medical computer vision | Andre Esteva, Katherine Chou | npj Digital Medicine | cit 1397 | remote_sensing_infill
+[2021] Plug-and-Play Image Restoration With Deep Denoiser Prior | Kai Zhang, Yawei Li | IEEE Transactions on Pattern Analysis  | cit 1119 | remote_sensing_infill
+[2021] A Robust Method for Filling the Gaps in MODIS and VIIRS Land Surface Temperature Data | Rui Yao, Lunche Wang | IEEE Transactions on Geoscience and Re | cit 74 | remote_sensing_infill
+[2021] Worldwide continuous gap-filled MODIS land surface temperature dataset | Shilo Shiff, David N. Helman | Scientific Data | cit 96 | remote_sensing_infill
+[2021] Deep Learning for Geophysics: Current and Future Trends | Siwei Yu, Jianwei Ma | Reviews of Geophysics | cit 565 | remote_sensing_infill
+[2021] Explaining Deep Neural Networks and Beyond: A Review of Methods and Applications | Wojciech Samek, Grégoire Montavon | Proceedings of the IEEE | cit 1452 | remote_sensing_infill
+[2021] CSDI: Conditional Score-based Diffusion Models for Probabilistic Time Series Imputation | Yusuke Tashiro, Jiaming Song | arXiv (Cornell University) | cit 75 | diffusion_generative
+[2021] Highly accurate protein structure prediction with AlphaFold | John Jumper, Richard Evans | Nature | cit 47816 | diffusion_generative
+[2021] Skilful precipitation nowcasting using deep generative models of radar | Suman V. Ravuri, Karel Lenc | Nature | cit 1026 | diffusion_generative/diffusion_generative
+[2021] Deep Generative Modelling: A Comparative Review of VAEs, GANs, Normalizing Flows, Energy-Based and Autoregress | Sam Bond-Taylor, Adam Leach | IEEE Transactions on Pattern Analysis  | cit 712 | diffusion_generative
+[2021] Inductive Graph Neural Networks for Spatiotemporal Kriging | Yuankai Wu, Dingyi Zhuang | Proceedings of the AAAI Conference on  | cit 166 | classical_spatial/classical_spatial
+[2021] Evaluation of spatial interpolation methods and spatiotemporal modeling of rainfall distribution in Peninsular | Kit Fai Fung, Kim Soon Chew | Ain Shams Engineering Journal | cit 63 | classical_spatial
+[2021] An Interpretable Machine Learning Model for Daily Global Solar Radiation Prediction | Mohamed Chaibi, El Mahjoub Benghoulam | Energies | cit 65 | classical_spatial
+[2021] Evaluation of global solar radiation, cloudiness index and sky view factor as potential indicators of Ghana's  | Michael Tanu, William Amponsah | Scientific African | cit 28 | classical_spatial
+[2021] A Survey of Convolutional Neural Networks: Analysis, Applications, and Prospects | Zewen Li, Fan Liu | IEEE Transactions on Neural Networks a | cit 5164 | classical_spatial
+[2021] Data Augmentation for Graph Neural Networks | Tong Zhao, Yozen Liu | Proceedings of the AAAI Conference on  | cit 349 | classical_spatial
+[2021] Perineuronal nets stabilize the grid cell network | Ane Charlotte Christensen, Kristian Kinden Lensjø | Nature Communications | cit 1881 | classical_spatial
+[2021] Spatio-Temporal Graph Neural Networks for Multi-Site PV Power Forecasting | Jelena Simeunović, Baptiste Schubnel | IEEE Transactions on Sustainable Energ | cit 269 | classical_spatial
+[2021] Generating Ensemble Streamflow Forecasts: A Review of Methods and Approaches Over the Past 40 Years | Magali Troin, Richard Arsenault | Water Resources Research | cit 224 | calibration_uq
+[2021] Evaluating epidemic forecasts in an interval format | Johannes Bracher, Evan L Ray | PLoS Computational Biology | cit 325 | calibration_uq/calibration_uq
+[2021] Global canopy height regression and uncertainty estimation from GEDI LIDAR waveforms with deep ensembles | Nico Lang, Nikolai Kalischek | Remote Sensing of Environment | cit 299 | calibration_uq
+[2021] Tabular data: Deep learning is not all you need | Ravid Shwartz-Ziv, Amitai Armon | Information Fusion | cit 2098 | calibration_uq
+[2021] The coefficient of determination R-squared is more informative than SMAPE, MAE, MAPE, MSE and RMSE in regressi | Davide Chicco, Matthijs J. Warrens | PeerJ Computer Science | cit 5368 | calibration_uq
+[2021] Uncertainty-aware body composition analysis with deep regression ensembles on UK Biobank MRI | Taro Langner, Fredrik Gustafsson | Computerized Medical Imaging and Graph | cit 17 | calibration_uq
+[2021] A Survey of Traffic Prediction: from Spatio-Temporal Data to Intelligent Transportation | Haitao Yuan, Guoliang Li | Data Science and Engineering | cit 392 | calibration_uq
+[2021] Land Use Land Cover Classification with U-Net: Advantages of Combining Sentinel-1 and Sentinel-2 Imagery | Jonathan V. Solórzano, Jean‐François Mas | Remote Sensing | cit 160 | unet_comparators
+[2021] Bayesian convolutional neural networks for predicting the terrestrial water storage anomalies during GRACE and | Shaoxing Mo, Yulong Zhong | Journal of Hydrology | cit 108 | unet_comparators
+[2021] Skip-Convolutions for Efficient Video Processing | Amirhossein Habibian, Davide Abati |  | cit 49 | unet_comparators
+[2020] Sequential Imputation of Missing Spatio-Temporal Precipitation Data Using Random Forests | Utkarsh Mital, Dipankar Dwivedi | Frontiers in Water | cit 81 | solar_recovery
+[2020] Outdoor PV System Monitoring—Input Data Quality, Data Imputation and Filtering Approaches | Sascha Lindig, Atse Louwen | Energies | cit 63 | solar_recovery
+[2020] Six-junction III–V solar cells with 47.1% conversion efficiency under 143 Suns concentration | John F. Geisz, Ryan M. France | Nature Energy | cit 720 | solar_recovery
+[2020] The FLUXNET2015 dataset and the ONEFlux processing pipeline for eddy covariance data | Gilberto Zonta Pastorello Junior, Carlo Trotta | Scientific Data | cit 1819 | solar_recovery
+[2020] Review on Life Cycle Assessment of Solar Photovoltaic Panels | Vincenzo Muteri, Maurizio Cellura | Energies | cit 384 | solar_recovery
+[2020] Future evolution of surface solar radiation and photovoltaic potential in Europe: investigating the role of ae | Claudia Gutiérrez, Samuel Somot | Environmental Research Letters | cit 127 | solar_recovery
+[2020] The Global Land Surface Satellite (GLASS) Product Suite | Shunlin Liang, Jie Cheng | Bulletin of the American Meteorologica | cit 669 | solar_recovery
+[2020] Reconstruction of daytime land surface temperatures under cloud-covered conditions using integrated MODIS/Terr | Wei Zhao, Si‐Bo Duan | Remote Sensing of Environment | cit 197 | solar_recovery
+[2020] Prediction of Harvestable Energy for Self-Powered Wearable Healthcare Devices: Filling a Gap | Maram A. Wahba, Amira Salah Ashour | IEEE Access | cit 41 | solar_recovery
+[2020] Google Earth Engine Cloud Computing Platform for Remote Sensing Big Data Applications: A Comprehensive Review | Meisam Amani, Arsalan Ghorbanian | IEEE Journal of Selected Topics in App | cit 1169 | remote_sensing_infill
+[2020] Thick cloud and cloud shadow removal in multitemporal imagery using progressively spatio-temporal patch group  | Qiang Zhang, Qiangqiang Yuan | ISPRS Journal of Photogrammetry and Re | cit 220 | remote_sensing_infill
+[2020] Thin cloud removal in optical remote sensing images based on generative adversarial networks and physical mode | Jun Li, Zhaocong Wu | ISPRS Journal of Photogrammetry and Re | cit 166 | remote_sensing_infill
+[2020] Cloud removal in Sentinel-2 imagery using a deep residual neural network and SAR-optical data fusion | Andrea Meraner, Patrick Ebel | ISPRS Journal of Photogrammetry and Re | cit 514 | remote_sensing_infill
+[2020] Deep Learning for Land Use and Land Cover Classification Based on Hyperspectral and Multispectral Earth Observ | Ava Vali, Sara Comai | Remote Sensing | cit 458 | remote_sensing_infill
+[2020] An Updated Assessment of Near‐Surface Temperature Change From 1850: The HadCRUT5 Data Set | Colin Peter Morice, John Kennedy | Journal of Geophysical Research Atmosp | cit 1011 | remote_sensing_infill
+[2020] A Machine Learning Approach for Remote Sensing Data Gap-Filling with Open-Source Implementation: An Example Re | Mikhail Sarafanov, Эдуард Эдуардович Казаков | Remote Sensing | cit 87 | remote_sensing_infill
+[2020] A Review of the Artificial Neural Network Models for Water Quality Prediction | Yingyi Chen, Lihua Song | Applied Sciences | cit 468 | remote_sensing_infill
+[2020] A Review of the Deep Learning Methods for Medical Images Super Resolution Problems | Y. Li, Bruno Sixou | IRBM | cit 286 | remote_sensing_infill
+[2020] Backpropagation algorithms and Reservoir Computing in Recurrent Neural Networks for the forecasting of complex | Pantelis  Rafail Vlachas, Jaideep Pathak | Neural Networks | cit 487 | diffusion_generative
+[2020] Evaluation of global terrestrial evapotranspiration using state-of-the-art approaches in remote sensing, machi | Shufen Pan, Naiqing Pan | Hydrology and earth system sciences | cit 370 | diffusion_generative
+[2020] A comparative study of convolutional neural network models for wind field downscaling | Kevin Höhlein, Michael Kern | Meteorological Applications | cit 109 | diffusion_generative
+[2020] Spatiotemporal variations and influencing factors of PM2.5 concentrations in Beijing, China | Licheng Zhang, Ji An | Environmental Pollution | cit 103 | classical_spatial
+[2020] Kriging Convolutional Networks | Gabriel Appleby, Linfeng Liu | Proceedings of the AAAI Conference on  | cit 80 | classical_spatial
+[2020] Spatiotemporal Trends and Attribution of Drought across China from 1901–2100 | Yongxia Ding, Shouzhang Peng | Sustainability | cit 290 | classical_spatial/calibration_uq
+[2020] Adversarial super-resolution of climatological wind and solar data | Karen Stengel, Andrew Glaws | Proceedings of the National Academy of | cit 294 | classical_spatial
+[2020] Machine learning and geostatistical approaches for estimating aboveground biomass in Chinese subtropical fores | Huiyi Su, Wenjuan Shen | Forest Ecosystems | cit 129 | classical_spatial
+[2020] GIS-AHP Multi Criteria Decision Analysis for the optimal location of solar energy plants at Indonesia | Harold Steven Ruiz, Alfeus Sunarso | Energy Reports | cit 218 | classical_spatial
+[2020] Evaluating the Potential of Gaussian Process Regression for Solar Radiation Forecasting: A Case Study | Foster Lubbe, Jacques Maritz | Energies | cit 33 | classical_spatial
+[2020] EEG-Based Emotion Recognition Using Regularized Graph Neural Networks | Peixiang Zhong, Di Wang | IEEE Transactions on Affective Computi | cit 900 | classical_spatial
+[2020] Connecting the Dots: Multivariate Time Series Forecasting with Graph Neural Networks | Zonghan Wu, Shirui Pan |  | cit 1974 | classical_spatial
+[2020] Graph Structure Learning for Robust Graph Neural Networks | Wei Jin, Yao Ma |  | cit 640 | classical_spatial
+[2020] Spatiotemporal prediction of air quality based on LSTM neural network | Dewen Seng, Qiyan Zhang | Alexandria Engineering Journal | cit 191 | classical_spatial
+[2020] Ensemble flood forecasting: Current status and future opportunities | Wenyan Wu, Rebecca Emerton | Wiley Interdisciplinary Reviews Water | cit 274 | calibration_uq
+[2020] Ensemble Forecasts of Coronavirus Disease 2019 (COVID-19) in the U.S. | Evan L Ray, Nutcha Wattanachit | medRxiv | cit 178 | calibration_uq
+[2020] Flood susceptibility modelling using advanced ensemble machine learning models | Abu Reza Md. Towfiqul Islam, Swapan Talukdar | Geoscience Frontiers | cit 588 | calibration_uq
+[2020] A tailored, electronic textile conformable suit for large-scale spatiotemporal physiological sensing in vivo | Irmandy Wicaksono, Carson I. Tucker | npj Flexible Electronics | cit 232 | calibration_uq
+[2020] Evaluation of CMIP5 and CMIP6 simulations of historical surface air temperature extremes using proper evaluati | Thordis Linda Thorarinsdottir, Jana Sillmann | Environmental Research Letters | cit 59 | calibration_uq
+[2020] A rapid advice guideline for the diagnosis and treatment of 2019 novel coronavirus (2019-nCoV) infected pneumo | Yinghui Jin, Lin Cai | Military Medical Research | cit 2370 | calibration_uq
+[2020] CS 2 -Net: Deep learning segmentation of curvilinear structures in medical imaging | Lei Mou, Yitian Zhao | Medical Image Analysis | cit 416 | unet_comparators
+[2020] 70 years of machine learning in geoscience in review | Jesper Sören Dramsch | Technical University of Denmark, DTU O | cit 237 | unet_comparators
+[2020] Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing (EMNLP) |  |  | cit 1286 | unet_comparators
+[2019] Remote sensing of solar-induced chlorophyll fluorescence (SIF) in vegetation: 50 years of progress | Gina H. Mohammed, Roberto Colombo | Remote Sensing of Environment | cit 775 | solar_recovery/solar_recovery/solar_recovery/remote_sensing_infill/diffusion_generative
+[2019] On the Relation between the Open‐Circuit Voltage and Quasi‐Fermi Level Splitting in Efficient Perovskite Solar | Pietro Caprioglio, Martin Stolterfoht | Advanced Energy Materials | cit 557 | solar_recovery
+[2019] Ozone—climate interactions and effects on solar ultraviolet radiation | Alkiviadis F. Bais, G. Bernhard | Photochemical & Photobiological Scienc | cit 213 | solar_recovery/solar_recovery
+[2019] Estimating surface solar irradiance from satellites: Past, present, and future perspectives | Guanghui Huang, Zhanqing Li | Remote Sensing of Environment | cit 299 | solar_recovery/solar_recovery
+[2019] How to Report Record Open‐Circuit Voltages in Lead‐Halide Perovskite Solar Cells | Lisa Krückemeier, Uwe Rau | Advanced Energy Materials | cit 247 | solar_recovery
+[2019] Missing-linker metal-organic frameworks for oxygen evolution reaction | Ziqian Xue, Kang Liu | Nature Communications | cit 679 | solar_recovery
+[2019] Time Series ARIMA Model for Prediction of Daily and Monthly Average Global Solar Radiation: The Case Study of  | Mohammed H. Alsharif, Mohammad K. Younes | Symmetry | cit 294 | solar_recovery
+[2019] Historical background and current developments for mapping burned area from satellite Earth observation | Emilio Chuvieco, Florent Mouillot | Remote Sensing of Environment | cit 632 | solar_recovery
+[2019] Satellite-based time-series of sea-surface temperature since 1981 for climate applications | Christopher J. Merchant, Owen Embury | Scientific Data | cit 544 | solar_recovery
+[2019] The impact of globally diverse GHI training data: Evaluation through application of a simple Markov chain down | Jamie M. Bright | Journal of Renewable and Sustainable E | cit 35 | solar_recovery
+[2019] A Survey of Deep Learning-Based Object Detection | Licheng Jiao, Fan Zhang | IEEE Access | cit 1332 | remote_sensing_infill/remote_sensing_infill
+[2019] Continual lifelong learning with neural networks: A review | German Ignacio Parisi, Ronald Kemker | Neural Networks | cit 3163 | remote_sensing_infill
+[2019] Survey on deep learning with class imbalance | Justin M. Johnson, Taghi M. Khoshgoftaar | Journal Of Big Data | cit 3040 | remote_sensing_infill
+[2019] Deep Learning for Generic Object Detection: A Survey | Li Liu, Wanli Ouyang | International Journal of Computer Visi | cit 2846 | remote_sensing_infill
+[2019] A Remote Sensing Image Dataset for Cloud Removal | Daoyu Lin, Guangluan Xu | arXiv (Cornell University) | cit 75 | remote_sensing_infill
+[2019] Spatiotemporal Image Fusion in Remote Sensing | Mariana Belgiu, Alfred A. Stein | Remote Sensing | cit 201 | remote_sensing_infill
+[2019] Evaluation of MODIS and VIIRS cloud-gap-filled snow-cover products for production of an Earth science data rec | Dorothy K. Hall, George A. Riggs | Hydrology and earth system sciences | cit 112 | remote_sensing_infill
+[2019] Remote sensing of the terrestrial carbon cycle: A review of advances over 50 years | Jingfeng Xiao, Frédéric Chevallier | Remote Sensing of Environment | cit 664 | remote_sensing_infill
+[2019] A cloud detection algorithm for satellite imagery based on deep learning | Jacob Høxbroe Jeppesen, Rune Hylsberg Jacobsen | Remote Sensing of Environment | cit 407 | remote_sensing_infill
+[2019] Understanding Deep Learning Techniques for Image Segmentation | Swarnendu Ghosh, Nibaran Das | ACM Computing Surveys | cit 483 | remote_sensing_infill
+[2019] Deep Learning Meets Hyperspectral Image Analysis: A Multidisciplinary Review | Alberto Signoroni, Mattia Savardi | Journal of Imaging | cit 391 | remote_sensing_infill
+[2019] A Survey on the New Generation of Deep Learning in Image Processing | Licheng Jiao, Jin Kao Zhao | IEEE Access | cit 294 | remote_sensing_infill
+[2019] A survey on Image Data Augmentation for Deep Learning | Connor Shorten, Taghi M. Khoshgoftaar | Journal Of Big Data | cit 13213 | diffusion_generative
+[2019] Generative Modeling by Estimating Gradients of the Data Distribution | Yang Sup Song, Stefano Ermon | arXiv (Cornell University) | cit 1073 | diffusion_generative
+[2019] Waveglow: A Flow-based Generative Network for Speech Synthesis | Ryan Prenger, Rafael Valle |  | cit 1016 | diffusion_generative
+[2019] SinGAN: Learning a Generative Model From a Single Natural Image | Tamar Rott Shaham, Tali Dekel |  | cit 931 | diffusion_generative
+[2019] Multisource and Multitemporal Data Fusion in Remote Sensing: A Comprehensive Review of the State of the Art | Pedram Ghamisi, Richard Gloaguen | IEEE Geoscience and Remote Sensing Mag | cit 630 | diffusion_generative
+[2019] Half a century of satellite remote sensing of sea-surface temperature | Peter J. Minnett, Aïda Alvera Azcarate | Remote Sensing of Environment | cit 350 | diffusion_generative
+[2019] The Community Land Model Version 5: Description of New Features, Benchmarking, and Impact of Forcing Uncertain | David M. Lawrence, Rosie A. Fisher | Journal of Advances in Modeling Earth  | cit 2214 | diffusion_generative/calibration_uq
+[2019] GIS-Based Solar Radiation Mapping, Site Evaluation, and Potential Assessment: A Review | Yosoon Choi, Jangwon Suh | Applied Sciences | cit 135 | classical_spatial
+[2019] Flavonol Profile Is a Reliable Indicator to Assess Canopy Architecture and the Exposure of Red Wine Grapes to  | Johann Martínez‐Lüscher, Luca Brillante | Frontiers in Plant Science | cit 151 | classical_spatial
+[2019] Mapping soil hydraulic properties using random-forest-based pedotransfer functions and geostatistics | Brigitta Szabó, Gábor Szatmári | Hydrology and earth system sciences | cit 103 | classical_spatial
+[2019] Graph convolutional networks: a comprehensive review | Si Zhang, Hanghang Tong | Computational Social Networks | cit 1908 | classical_spatial
+[2019] Fast Graph Representation Learning with PyTorch Geometric | Matthias Fey, Jan Eric Lenssen | arXiv (Cornell University) | cit 1220 | classical_spatial
+[2019] 3D Point Cloud Denoising Using Graph Laplacian Regularization of a Low Dimensional Manifold Model | Jin Zeng, Gene Cheung | IEEE Transactions on Image Processing | cit 177 | classical_spatial
+[2019] SEAS5: the new ECMWF seasonal forecast system | Stephanie J. Johnson, Tim Stockdale | Geoscientific model development | cit 737 | calibration_uq
+[2019] Accuracy of real-time multi-model ensemble forecasts for seasonal influenza in the U.S. | Nicholas G Reich, Craig J. McGowan | PLoS Computational Biology | cit 210 | calibration_uq
+[2019] The future of forecasting for renewable energy | C. Sweeney, Ricardo Jorge Bessa | Wiley Interdisciplinary Reviews Energy | cit 298 | calibration_uq
+[2019] Pysteps: an open-source Python library for probabilistic precipitation nowcasting (v1.0) | Seppo Pulkkinen, Daniele Nerini | Geoscientific model development | cit 292 | calibration_uq
+[2019] CheXpert: A Large Chest Radiograph Dataset with Uncertainty Labels and Expert Comparison | Jeremy Irvin, Pranav Rajpurkar | AAAI Publications (The Association for | cit 2714 | calibration_uq
+[2019] Substrate curvature as a cue to guide spatiotemporal cell and tissue organization | Sebastien J. P. Callens, Rafael J.C. Uyttendaele | Biomaterials | cit 342 | calibration_uq
+[2019] Evaluating Probabilistic Forecasts with scoringRules | Alexander I. Jordan, Fabian Krüger | Journal of Statistical Software | cit 234 | calibration_uq
+[2019] Local scale invariance and robustness of proper scoring rules | David Bolin, Jonas Wallin | arXiv (Cornell University) | cit 3 | calibration_uq
+[2019] Machine Learning for the Geosciences: Challenges and Opportunities | Anuj Karpatne, Imme Ebert‐Uphoff | IEEE Transactions on Knowledge and Dat | cit 682 | unet_comparators
+[2019] An Enhanced Deep Convolutional Model for Spatiotemporal Image Fusion | Zhenyu Tan, Liping Di | Remote Sensing | cit 155 | unet_comparators
+[2019] Spatiotemporal imputation of MAIAC AOD using deep learning with downscaling | Lianfa Li, Meredith Franklin | Remote Sensing of Environment | cit 123 | unet_comparators
+[2019] Uncovering convolutional neural network decisions for diagnosing multiple sclerosis on conventional MRI using  | Fabian Eitel, Emily Soehler | NeuroImage Clinical | cit 174 | unet_comparators
+[2019] Reconstructing Geostationary Satellite Land Surface Temperature Imagery Based on a Multiscale Feature Connecte | Penghai Wu, Zhixiang Yin | Remote Sensing | cit 108 | unet_comparators
+[2018] Neural Models for Imputation of Missing Ozone Data in Air‐Quality Datasets | Ángel Arroyo, Álvaro Herrero | Complexity | cit 30 | solar_recovery
+[2018] The National Solar Radiation Data Base (NSRDB) | Manajit Sengupta, Yu Xie | Renewable and Sustainable Energy Revie | cit 1461 | solar_recovery/solar_recovery
+[2018] Evaluation of global horizontal irradiance estimates from ERA5 and COSMO-REA6 reanalyses using ground and sate | Ruben Urraca-Valle, Thomas A. Huld | Solar Energy | cit 486 | solar_recovery/solar_recovery
+[2018] Solar total and spectral irradiance reconstruction over the last 9000 years | C.-J. Wu, N. A. Krivova | Astronomy and Astrophysics | cit 115 | solar_recovery/solar_recovery
+[2018] Dye-Sensitized Solar Cells: Fundamentals and Current Status | Khushboo Sharma, Vinay K. Sharma | Nanoscale Research Letters | cit 1090 | solar_recovery
+[2018] A global spatially contiguous solar-induced fluorescence (CSIF) dataset using neural networks | Yao Zhang, Joanna Joiner | Biogeosciences | cit 507 | solar_recovery
+[2018] High efficiency planar-type perovskite solar cells with negligible hysteresis using EDTA-complexed SnO2 | Dong Fang Yang, Ruixia Yang | Nature Communications | cit 1412 | solar_recovery
+[2018] Perovskite-Based Solar Cells: Materials, Methods, and Future Perspectives | Di Feng Zhou, Tiantian Zhou | Journal of Nanomaterials | cit 427 | solar_recovery
+[2018] Empirical and machine learning models for predicting daily global solar radiation from sunshine duration: A re | Junliang Fan, Lifeng Wu | Renewable and Sustainable Energy Revie | cit 293 | solar_recovery/solar_recovery
+[2018] TerraClimate, a high-resolution global dataset of monthly climate and climatic water balance from 1958–2015 | John T. Abatzoglou, Solomon Z. Dobrowski | Scientific Data | cit 3497 | solar_recovery
+[2018] Cosmology and fundamental physics with the Euclid satellite | The Euclid Theory Working Group, Luca Amendola | Living Reviews in Relativity | cit 1017 | solar_recovery
+[2018] Satellite Remote Sensing of Surface Urban Heat Islands: Progress, Challenges, and Perspectives | Decheng Zhou, Jingfeng Xiao | Remote Sensing | cit 1068 | solar_recovery
+[2018] Satellite Remote Sensing for Water Resources Management: Potential for Supporting Sustainable Development in D | Justin Sheffield, Eric F. Wood | Water Resources Research | cit 568 | solar_recovery/remote_sensing_infill
+[2018] NASA's Black Marble nighttime lights product suite | Miguel O. Román, Zhuosen Wang | Remote Sensing of Environment | cit 610 | solar_recovery
+[2018] Deep Learning for Computer Vision: A Brief Review | Athanasios S. Voulodimos, Nikolaos D. Doulamis | Computational Intelligence and Neurosc | cit 3394 | remote_sensing_infill
+[2018] Deep Learning for IoT Big Data and Streaming Analytics: A Survey | Mehdi Mohammadi, Ala Al‐Fuqaha | IEEE Communications Surveys & Tutorial | cit 1481 | remote_sensing_infill
+[2018] Deep learning in agriculture: A survey | Andreas Kamilaris, Francesc Xavier Prenafeta-Boldú | Computers and Electronics in Agricultu | cit 5109 | remote_sensing_infill/unet_comparators
+[2018] Filling the missing data gaps of daily MODIS AOD using spatiotemporal interpolation | Jing Yang, Maogui Hu | The Science of The Total Environment | cit 121 | remote_sensing_infill/classical_spatial
+[2018] Remote Sensing and Cropping Practices: A Review | Agnès Bégué, Damien Arvor | Remote Sensing | cit 474 | remote_sensing_infill
+[2018] A methodology to derive global maps of leaf traits using remote sensing and climate data | Álvaro Moreno‐Martínez, Gustau Camps‐Valls | Remote Sensing of Environment | cit 246 | remote_sensing_infill
+[2018] Inpainting of Remote Sensing SST Images With Deep Convolutional Generative Adversarial Network | Junyu Dong, Ruiying Yin | IEEE Geoscience and Remote Sensing Let | cit 108 | remote_sensing_infill
+[2018] Deep Clustering for Unsupervised Learning of Visual Features | Caron, Mathilde, Piotr Bojanowski | arXiv (Cornell University) | cit 472 | remote_sensing_infill
+[2018] Human mobility: Models and applications | Hugo Barbosa, Marc Barthélemy | Physics Reports | cit 1057 | diffusion_generative
+[2018] Spatio-Temporal Areal Unit Modeling in R with Conditional Autoregressive Priors Using the CARBayesST Package | Duncan Lee, Alastair Rushworth | Journal of Statistical Software | cit 156 | diffusion_generative
+[2018] The Mythos of Model Interpretability | Zachary C. Lipton | Communications of the ACM | cit 5099 | diffusion_generative
+[2018] Data assimilation in the geosciences: An overview of methods, issues, and perspectives | Alberto Carrassi, Marc Bocquet | Wiley Interdisciplinary Reviews Climat | cit 947 | diffusion_generative
+[2018] Geodetic and Remote-Sensing Sensors for Dam Deformation Monitoring | Marco Scaioni, Maria Marsella | Sensors | cit 185 | diffusion_generative
+[2018] A non-uniform spatiotemporal kriging interpolation algorithm for landslide displacement data | Yong Liu, Zhe Chen | Bulletin of Engineering Geology and th | cit 45 | classical_spatial
+[2018] A spatiotemporal regression-kriging model for space-time interpolation: a case study of chlorophyll-a predicti | Zhenhong Du, Sensen Wu | International Journal of Geographical  | cit 30 | classical_spatial
+[2018] Kriging-based spatial interpolation from measurements for sound level mapping in urban areas | Pierre Aumond, Arnaud Can | The Journal of the Acoustical Society  | cit 89 | classical_spatial
+[2018] Deeper Insights Into Graph Convolutional Networks for Semi-Supervised Learning | Qimai Li, Zhichao Han | Proceedings of the AAAI Conference on  | cit 2651 | classical_spatial
+[2018] Graph Neural Networks: A Review of Methods and Applications | Jie Zhou, Ganqu Cui | arXiv (Cornell University) | cit 1423 | classical_spatial
+[2018] Large-Scale Hierarchical Text Classification with Recursively Regularized Deep Graph-CNN | Hao Ming Peng, Jianxin Li |  | cit 432 | classical_spatial
+[2018] Modeling polypharmacy side effects with graph convolutional networks | Marinka Žitnik, Monica Agrawal | Bioinformatics | cit 1509 | classical_spatial
+[2018] Graph Spectral Image Processing | Gene Cheung, Enrico Magli | Proceedings of the IEEE | cit 257 | classical_spatial
+[2018] Neural Motifs: Scene Graph Parsing with Global Context | Rowan Zellers, Mark Yatskar |  | cit 1124 | classical_spatial
+[2018] Spatio-Temporal Graph Convolutional Networks: A Deep Learning Framework for Traffic Forecasting | Bing Yu, Haoteng Yin |  | cit 3698 | classical_spatial
+[2018] Direction-of-Arrival Estimation Based on Deep Neural Networks With Robustness to Array Imperfections | Zhangmeng Liu, Chenwei Zhang | IEEE Transactions on Antennas and Prop | cit 578 | classical_spatial
+[2018] Neural Networks for Postprocessing Ensemble Weather Forecasts | Stephan Rasp, Sebastian Lerch | Monthly Weather Review | cit 536 | calibration_uq
+[2018] Sensitivity of Ensemble Forecast Verification to Model Bias | Jingzhuo Wang, Jing Chen | Monthly Weather Review | cit 44 | calibration_uq
+[2018] Bayesian deep convolutional encoder–decoder networks for surrogate modeling and uncertainty quantification | Yinhao Zhu, Nicholas J. Zabaras | Journal of Computational Physics | cit 735 | calibration_uq
+[2018] Spatiotemporal land use random forest model for estimating metropolitan NO2 exposure in Japan | Shin Araki, Masayuki Shima | The Science of The Total Environment | cit 159 | calibration_uq
+[2018] Using Stacking to Average Bayesian Predictive Distributions (with Discussion) | Yuling Yao, Aki Vehtari | Bayesian Analysis | cit 513 | calibration_uq

@@ -1,0 +1,29 @@
+{
+  "split": "2011 stored masks",
+  "hidden_cells": 547,
+  "hidden_fraction_of_valid": 0.014986301369863014,
+  "fresh_sampling": {
+    "rmse": 24.4103946685791,
+    "mae": 18.703367233276367,
+    "crps": 14.21781499256769,
+    "coverage90": 0.5904936014625228,
+    "width90": 41.15590286254883,
+    "n": 547
+  },
+  "archived_ensemble": {
+    "rmse": 68.93671417236328,
+    "mae": 45.861881256103516,
+    "crps": 38.0712708062499,
+    "coverage90": 0.4113345521023766,
+    "width90": 53.85948181152344,
+    "n": 547
+  },
+  "manuscript_table1_diffusion": {
+    "rmse": 24.51,
+    "mae": 18.81,
+    "crps": 14.46,
+    "coverage90": 0.589,
+    "width90": 40.11
+  },
+  "conclusion": "fresh sampling reproduces the manuscript"
+}

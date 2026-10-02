@@ -29,6 +29,9 @@ outputs/**/*.gif
 # Bundled LaTeX engine (49 MB). Reproduce with the official tectonic release.
 paper/tools/
 
+# Rendered inspection previews: the PPTX/PDF source is tracked instead.
+paper/figures/supplementary/preview_pdf/
+
 # LaTeX build products
 *.aux
 *.log

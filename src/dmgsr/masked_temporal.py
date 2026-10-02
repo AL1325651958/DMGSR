@@ -278,9 +278,25 @@ def sample_masked(
     members=12,
     chunk_size=8,
     boundary_blend=0.25,
+    graph_strength=0.15,
+    chunk_projection=True,
+    gain_mode="adaptive",
     return_trace=False,
 ):
-    """Sample masked months with hard observations and chunked feedback."""
+    """Sample masked months with hard observations and chunked feedback.
+
+    ``graph_strength`` scales the four-neighbour boundary correction applied at
+    every chunk boundary; ``boundary_blend`` scales the final spatial boundary
+    and diffusion blends. Setting either to zero removes that operation, which
+    is what the graph ablation varies.
+
+    ``chunk_projection`` selects whether the bounded monthly projection runs
+    inside every chunk (default) or only once at the end of reverse diffusion.
+    ``gain_mode`` selects the feedback gain: ``adaptive`` uses the ensemble
+    variance ratio, ``uniform`` a fixed 0.5, and ``full`` a gain of 1.
+    """
+    if gain_mode not in {"adaptive", "uniform", "full"}:
+        raise ValueError("gain_mode must be adaptive, uniform or full")
     device = target.device
     torch.manual_seed(seed)
     batch = target.shape[0]
@@ -339,14 +355,22 @@ def sample_masked(
 
         # Apply the monthly constraint once per chunk, then feed the corrected
         # state back into the next chunk through a consistent noisy latent.
-        spread = raw.reshape(batch, members, *raw.shape[1:]).var(1, unbiased=False).repeat_interleave(members, 0)
-        correction = bounded_partial_project(
-            raw, target_members, weights, valid_members[:, :, 0, 0], observed_members, upper_members
-        )
-        gain = (spread / (spread + (residual_scale * factor_members).square())).clamp(0.15, 0.85)
-        progress = 1.0 - low / 64.0
-        raw = raw + progress * gain * (correction - raw)
-        raw = graph_boundary_projection(raw, observed_members, valid_members, strength=0.15)
+        # `chunk_projection=False` keeps the mechanism but defers it to the end
+        # of sampling, so the two are separable.
+        if gain_mode == "adaptive":
+            spread = raw.reshape(batch, members, *raw.shape[1:]).var(1, unbiased=False).repeat_interleave(members, 0)
+            gain = (spread / (spread + (residual_scale * factor_members).square())).clamp(0.15, 0.85)
+        elif gain_mode == "uniform":
+            gain = torch.full_like(raw, 0.5)
+        else:
+            gain = torch.ones_like(raw)
+        if chunk_projection:
+            correction = bounded_partial_project(
+                raw, target_members, weights, valid_members[:, :, 0, 0], observed_members, upper_members
+            )
+            progress = 1.0 - low / 64.0
+            raw = raw + progress * gain * (correction - raw)
+        raw = graph_boundary_projection(raw, observed_members, valid_members, strength=graph_strength)
         raw = torch.where(observed_members > 0, observed_values_members * residual_scale * factor_members + base_members, raw)
         raw = torch.minimum(raw.clamp_min(0.0), upper_members) * valid_members
         boundary = schedule[low - 1] if low else torch.tensor(1.0, device=device)
@@ -534,7 +558,14 @@ def train_masked(
     missing_weight: float = 4.0,
     gradient_weight: float = 0.08,
     training_mode: str = "spatial_curriculum",
+    graph_weight: float = 0.05,
 ):
+    """Train the masked velocity network.
+
+    ``graph_weight`` scales the four-neighbour graph-structure loss. Setting it
+    to zero is the training-side graph ablation; every other term, the data
+    order and the sampled masks are unchanged.
+    """
     output = Path(output)
     output.mkdir(parents=True, exist_ok=True)
     torch.set_num_threads(4)
@@ -558,6 +589,8 @@ def train_masked(
     ab = alphas(device)
     rng = np.random.default_rng(20260911)
     history = {}
+    # The per-month tensors are indexed with device tensors below; no host-side
+    # copy of the full residual stack is made per batch.
     for seed in seeds:
         torch.manual_seed(seed)
         net = MaskedTemporalVelocityNet().to(device)
@@ -567,44 +600,49 @@ def train_masked(
             net.train()
             losses = []
             for ids_np in np.array_split(rng.permutation(train), max(1, len(train) // 12)):
-                ids = torch.tensor(ids_np, device=device)
+                ids = torch.as_tensor(ids_np, device=device)
+                res_b = residual.index_select(0, ids)
+                mon_b = monthly.index_select(0, ids)
+                wea_b = weather.index_select(0, ids)
+                val_b = valid_device.index_select(0, ids)
                 diffusion_step = torch.randint(0, 64, (len(ids),), device=device)
                 alpha = ab[diffusion_step, None, None, None]
-                noise = torch.randn_like(residual[ids]) * valid_device[ids]
-                z = (alpha.sqrt() * residual[ids] + (1 - alpha).sqrt() * noise) * valid_device[ids]
+                noise = torch.randn_like(res_b) * val_b
+                z = (alpha.sqrt() * res_b + (1 - alpha).sqrt() * noise) * val_b
                 if training_mode == "spatial_curriculum":
                     gap_mode = "mixed" if epoch < max(1, epochs // 3) else "spatial"
                     probability = spatial_probability if gap_mode == "mixed" else 1.0
                 else:
                     gap_mode, probability = "mixed", spatial_probability
                 observed = random_observation_mask(
-                    valid[ids.cpu()], rng, min_gap=1, max_gap=7,
+                    valid[ids_np], rng, min_gap=1, max_gap=7,
                     spatial_probability=probability, mode=gap_mode
                 ).to(device)
-                observed_values = residual[ids] * observed
-                velocity = alpha.sqrt() * noise - (1 - alpha).sqrt() * residual[ids]
-                prediction = net(z, monthly[ids], weather[ids], observed_values, observed, diffusion_step / 63, valid_device[ids])
+                observed_values = res_b * observed
+                velocity = alpha.sqrt() * noise - (1 - alpha).sqrt() * res_b
+                prediction = net(z, mon_b, wea_b, observed_values, observed, diffusion_step / 63, val_b)
                 pixel_weight = 1.0 + missing_weight * (1.0 - observed)
-                loss = ((prediction - velocity).square() * valid_device[ids] * pixel_weight).sum() / (valid_device[ids] * pixel_weight).sum().clamp_min(1.0)
+                loss = ((prediction - velocity).square() * val_b * pixel_weight).sum() / (val_b * pixel_weight).sum().clamp_min(1.0)
                 # Encourage realistic spatial texture specifically where the
                 # target is hidden. This auxiliary term acts on the recovered
                 # clean residual and uses horizontal finite differences.
                 clean_prediction = recover(z, prediction, alpha)
                 if gradient_weight > 0:
                     dx_pred = clean_prediction[..., :, 1:] - clean_prediction[..., :, :-1]
-                    dx_true = residual[ids][..., :, 1:] - residual[ids][..., :, :-1]
+                    dx_true = res_b[..., :, 1:] - res_b[..., :, :-1]
                     dy_pred = clean_prediction[..., 1:, :] - clean_prediction[..., :-1, :]
-                    dy_true = residual[ids][..., 1:, :] - residual[ids][..., :-1, :]
-                    miss_x = (1.0 - observed[..., :, 1:] * observed[..., :, :-1]) * valid_device[ids][..., :, 1:] * valid_device[ids][..., :, :-1]
-                    miss_y = (1.0 - observed[..., 1:, :] * observed[..., :-1, :]) * valid_device[ids][..., 1:, :] * valid_device[ids][..., :-1, :]
+                    dy_true = res_b[..., 1:, :] - res_b[..., :-1, :]
+                    miss_x = (1.0 - observed[..., :, 1:] * observed[..., :, :-1]) * val_b[..., :, 1:] * val_b[..., :, :-1]
+                    miss_y = (1.0 - observed[..., 1:, :] * observed[..., :-1, :]) * val_b[..., 1:, :] * val_b[..., :-1, :]
                     gradient_loss = (
                         ((dx_pred - dx_true).square() * miss_x).sum() / miss_x.sum().clamp_min(1.0)
                         + ((dy_pred - dy_true).square() * miss_y).sum() / miss_y.sum().clamp_min(1.0)
                     )
                     loss = loss + gradient_weight * gradient_loss
                 # Explicit graph-signal constraint on the recovered clean state.
-                graph_mask = (1.0 - observed) * valid_device[ids]
-                loss = loss + 0.05 * graph_structure_loss(clean_prediction, residual[ids], graph_mask)
+                if graph_weight > 0:
+                    graph_mask = (1.0 - observed) * val_b
+                    loss = loss + graph_weight * graph_structure_loss(clean_prediction, res_b, graph_mask)
                 optimizer.zero_grad()
                 loss.backward()
                 torch.nn.utils.clip_grad_norm_(net.parameters(), 1.0)
@@ -632,7 +670,7 @@ def train_masked(
         "conditioning_units": {"T2M": "degC", "PRECTOTCORR": "mm/day", "CLOUD_AMT": "%"},
         "train": "2000-2009", "validation": "2010-2011", "test": "2012-2014 exploratory",
         "random_missing_masks": {"temporal_gap_days": [1, 7], "spatial_block_probability": 0.35, "mask_is_explicit_network_input": True},
-        "spatial_curriculum": {"training_spatial_probability": spatial_probability, "missing_pixel_weight": missing_weight, "gradient_loss_weight": gradient_weight},
+        "spatial_curriculum": {"training_spatial_probability": spatial_probability, "missing_pixel_weight": missing_weight, "gradient_loss_weight": gradient_weight, "graph_structure_weight": graph_weight},
         "training_mode": training_mode,
         "observed_value_input": "normalized solar residual at observed cells; zero elsewhere",
         "network": "MaskedTemporalVelocityNet, 64-step velocity diffusion, four factorized space-time blocks",

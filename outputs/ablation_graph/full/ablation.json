@@ -1,0 +1,16 @@
+{
+  "config": "full",
+  "description": "structural loss + chunk-boundary graph correction + spatial blends",
+  "graph_weight_training": 0.05,
+  "graph_strength_sampling": 0.15,
+  "boundary_blend_sampling": 0.25,
+  "train_spatial_probability": 0.8,
+  "missing_weight": 5.0,
+  "gradient_weight": 0.08,
+  "epochs": 30,
+  "seeds": [
+    11,
+    22,
+    33
+  ]
+}

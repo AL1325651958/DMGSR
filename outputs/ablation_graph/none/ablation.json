@@ -1,0 +1,16 @@
+{
+  "config": "none",
+  "description": "no graph mechanism at any stage",
+  "graph_weight_training": 0.0,
+  "graph_strength_sampling": 0.0,
+  "boundary_blend_sampling": 0.0,
+  "train_spatial_probability": 0.8,
+  "missing_weight": 5.0,
+  "gradient_weight": 0.08,
+  "epochs": 30,
+  "seeds": [
+    11,
+    22,
+    33
+  ]
+}

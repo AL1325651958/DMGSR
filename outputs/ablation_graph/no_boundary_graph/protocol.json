@@ -1,0 +1,39 @@
+{
+  "name": "masked_v6_daily_weather_conditioned_diffusion",
+  "target_provider": "NASA POWER ALLSKY_SFC_SW_DWN, converted from kWh m-2 day-1 to daily mean W m-2",
+  "conditioning_provider": "NASA POWER daily T2M, PRECTOTCORR, CLOUD_AMT",
+  "conditioning_units": {
+    "T2M": "degC",
+    "PRECTOTCORR": "mm/day",
+    "CLOUD_AMT": "%"
+  },
+  "train": "2000-2009",
+  "validation": "2010-2011",
+  "test": "2012-2014 exploratory",
+  "random_missing_masks": {
+    "temporal_gap_days": [
+      1,
+      7
+    ],
+    "spatial_block_probability": 0.35,
+    "mask_is_explicit_network_input": true
+  },
+  "spatial_curriculum": {
+    "training_spatial_probability": 0.8,
+    "missing_pixel_weight": 5.0,
+    "gradient_loss_weight": 0.08,
+    "graph_structure_weight": 0.05
+  },
+  "training_mode": "spatial_curriculum",
+  "observed_value_input": "normalized solar residual at observed cells; zero elsewhere",
+  "network": "MaskedTemporalVelocityNet, 64-step velocity diffusion, four factorized space-time blocks",
+  "device": "cuda",
+  "epochs": 30,
+  "seeds": [
+    11,
+    22,
+    33
+  ],
+  "test_used_for_selection": false,
+  "scientific_boundary": "NASA POWER is satellite/reanalysis-derived, not station measurements; CMIP6 transfer still requires bias-adjusted monthly inputs."
+}

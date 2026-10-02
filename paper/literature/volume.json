@@ -1,0 +1,62 @@
+{
+  "year_from": 2015,
+  "topics": {
+    "solar radiation missing-data imputation": {
+      "query": "solar radiation missing data imputation",
+      "total": 53
+    },
+    "solar irradiance gap filling": {
+      "query": "solar irradiance gap filling",
+      "total": 55
+    },
+    "solar radiation reconstruction": {
+      "query": "solar radiation reconstruction",
+      "total": 831
+    },
+    "PV power missing-data imputation": {
+      "query": "photovoltaic power missing data imputation",
+      "total": 72
+    },
+    "remote sensing gap filling": {
+      "query": "remote sensing gap filling",
+      "total": 891
+    },
+    "satellite image inpainting/cloud removal": {
+      "query": "cloud removal satellite image deep learning",
+      "total": 120
+    },
+    "time-series imputation (diffusion)": {
+      "query": "diffusion model time series imputation",
+      "total": 176
+    },
+    "spatiotemporal imputation (diffusion)": {
+      "query": "diffusion model spatiotemporal imputation",
+      "total": 43
+    },
+    "spatiotemporal kriging": {
+      "query": "spatiotemporal kriging",
+      "total": 905
+    },
+    "graph signal processing": {
+      "query": "graph signal processing",
+      "total": 12296
+    },
+    "ensemble spread calibration": {
+      "query": "ensemble spread calibration probabilistic",
+      "total": 76
+    },
+    "conformal prediction": {
+      "query": "conformal prediction",
+      "total": 15482
+    }
+  },
+  "_method": {
+    "field": "title_and_abstract.search inside a filter clause",
+    "why_not_search": "the bare search parameter also matches full text and reference lists and inflates counts by 1-2 orders of magnitude",
+    "window": "from_publication_date only (open-ended); per-year windows are the topic of literature_volume.py",
+    "status": "topic totals are complete and verified; the per-year split was rate-limited by OpenAlex (HTTP 429) and is not included",
+    "counts_are": "keyword-based order-of-magnitude guide, not a systematic-review yield",
+    "date": "2026-10-02",
+    "by_year_note": "No per-year split is stored: the grouping endpoint returns truncated, newest-first buckets and the per-year windows were rate-limited. Re-run literature_volume.py to produce one."
+  }
+}
