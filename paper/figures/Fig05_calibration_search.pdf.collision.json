@@ -1,0 +1,96 @@
+{
+  "pdf": "F:\\Code\\SCI\\DMGSR\\paper\\figures\\Fig05_calibration_search.pdf",
+  "auditable": true,
+  "verdict": "FIX BEFORE DELIVERY",
+  "page_count": 1,
+  "visible_text_box_count": 47,
+  "text_trace_count": 47,
+  "stroke_path_count": 46,
+  "filled_region_count": 43,
+  "image_region_count": 2,
+  "summary": {
+    "fail": 1,
+    "warn": 2,
+    "contained_fill_overlays": 0,
+    "contained_image_overlays": 0
+  },
+  "thresholds": {
+    "text_inset_pt": 0.6,
+    "min_overlap_ratio": 0.05,
+    "clipping_tolerance_pt": 0.5
+  },
+  "findings": [
+    {
+      "severity": "FAIL",
+      "kind": "text-stroke",
+      "page": 1,
+      "message": "Text is crossed by 1 stroked path(s)",
+      "text": "U-Net mean weight w",
+      "text_bbox": [
+        106.48362731933594,
+        187.69137573242188,
+        173.39080810546875,
+        194.69137573242188
+      ],
+      "other_text": null,
+      "other_bbox": [
+        51.84000015258789,
+        193.7375946044922,
+        228.0959930419922,
+        198.6479949951172
+      ],
+      "object_count": 1,
+      "object_indexes": [
+        49
+      ]
+    },
+    {
+      "severity": "WARN",
+      "kind": "text-fill-edge",
+      "page": 1,
+      "message": "Text partially overlaps the edge of 1 filled region(s)",
+      "text": "U-Net mean weight w",
+      "text_bbox": [
+        106.48362731933594,
+        187.69137573242188,
+        173.39080810546875,
+        194.69137573242188
+      ],
+      "other_text": null,
+      "other_bbox": [
+        51.84000015258789,
+        193.7375946044922,
+        228.0959930419922,
+        198.6479949951172
+      ],
+      "object_count": 1,
+      "object_indexes": [
+        41000
+      ]
+    },
+    {
+      "severity": "WARN",
+      "kind": "text-image-edge",
+      "page": 1,
+      "message": "Text partially overlaps the edge of 1 raster image(s)",
+      "text": "U-Net mean weight w",
+      "text_bbox": [
+        106.48362731933594,
+        187.69137573242188,
+        173.39080810546875,
+        194.69137573242188
+      ],
+      "other_text": null,
+      "other_bbox": [
+        51.84000015258789,
+        193.6800079345703,
+        228.239990234375,
+        198.72000122070312
+      ],
+      "object_count": 1,
+      "object_indexes": [
+        1
+      ]
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "pdf": "F:\\Code\\SCI\\DMGSR\\paper\\figures\\Fig03_matched_skill.pdf",
+  "auditable": true,
+  "verdict": "FIX BEFORE DELIVERY",
+  "page_count": 1,
+  "visible_text_box_count": 45,
+  "text_trace_count": 45,
+  "stroke_path_count": 31,
+  "filled_region_count": 42,
+  "image_region_count": 0,
+  "summary": {
+    "fail": 2,
+    "warn": 0,
+    "contained_fill_overlays": 0,
+    "contained_image_overlays": 0
+  },
+  "thresholds": {
+    "text_inset_pt": 0.6,
+    "min_overlap_ratio": 0.05,
+    "clipping_tolerance_pt": 0.5
+  },
+  "findings": [
+    {
+      "severity": "FAIL",
+      "kind": "text-page-clipping",
+      "page": 1,
+      "message": "Text extends beyond the final PDF page boundary",
+      "text": "Neighbour propagation",
+      "text_bbox": [
+        -16.30062484741211,
+        53.873722076416016,
+        44.7322883605957,
+        59.873722076416016
+      ],
+      "other_text": null,
+      "other_bbox": [
+        0.0,
+        0.0,
+        518.4000244140625,
+        259.20001220703125
+      ],
+      "object_count": 1,
+      "object_indexes": [
+        10
+      ]
+    },
+    {
+      "severity": "FAIL",
+      "kind": "text-page-clipping",
+      "page": 1,
+      "message": "Text extends beyond the final PDF page boundary",
+      "text": "Laplacian smoothing",
+      "text_bbox": [
+        -10.26937484741211,
+        79.44991302490234,
+        44.75754165649414,
+        85.44991302490234
+      ],
+      "other_text": null,
+      "other_bbox": [
+        0.0,
+        0.0,
+        518.4000244140625,
+        259.20001220703125
+      ],
+      "object_count": 1,
+      "object_indexes": [
+        11
+      ]
+    }
+  ]
+}

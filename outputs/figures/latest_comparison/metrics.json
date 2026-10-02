@@ -1,0 +1,48 @@
+{
+  "case": "2011-07",
+  "day_shown": 12,
+  "missing_values": 112,
+  "weight_unet": 0.9,
+  "spread_scale": 6.5,
+  "selection": "Same fixed July 9-15 central 4x4 gap as previous figure, no performance-based selection",
+  "rerun": "Latest saved weights and frozen fusion parameters, corrected calendar-aligned U-Net inference",
+  "calendar_index": 138,
+  "legacy_inference_issue": "Old validation-local index 18 selected Jan2000-origin weather/monthly/base (July2001) instead of July2011",
+  "calibration_limit": "Fusion parameters inherited from legacy misaligned evaluation; not recalibrated after correction",
+  "reference": "NASA POWER product; monthly target derived from complete reference, including hidden values",
+  "unet_checkpoint_sha256": [
+    "a1fcbc6f882a5106289cc54b01c5786a5cb95a3b4dd34181b2379b3d0c2404d2",
+    "8d4cf9a1ac7c066fae28c0c81a7f59b793dc0129df3e8f3be7310764f9300c47",
+    "cf7c582efda59b46d135a05e7ada4d5b70fb75d4a19d2530dee8c8a864d753f2",
+    "3294731597c1677011f6576a59280aab62e8d97f02094061bedd145c75b8ed9d",
+    "717d2d05c55740149ae58ed7471beece408a4ab1630774ed54cc7178e081f5da",
+    "59df9f80a9b5ef7c760d05f905ae350ef9ebb7852803efa824f4393864888bf1",
+    "cefb93e2a04e20b74f64b1bde7eb68ad1dd1ae094af5b9664717e072ae884bc7",
+    "c42ec2cb85a731dc104ae57257f132ee7d201127dee088bce7209b86424fe158"
+  ],
+  "metrics": {
+    "diffusion": {
+      "rmse": 37.70055389404297,
+      "mae": 30.44083023071289,
+      "crps": 23.958751629742363,
+      "coverage90": 0.44642857142857145,
+      "width90": 46.13372741086141
+    },
+    "unet": {
+      "rmse": 27.79857635498047,
+      "mae": 22.907663345336914,
+      "crps": 18.068766909518413,
+      "coverage90": 0.41964285714285715,
+      "width90": 33.80801895516259
+    },
+    "latest_fusion": {
+      "rmse": 28.344087600708008,
+      "mae": 23.3516902923584,
+      "crps": 17.270295972994397,
+      "coverage90": 0.9196428571428571,
+      "width90": 138.97957475696293
+    }
+  },
+  "negative_fused_missing_members_fraction": 0.020982142857142855,
+  "aggregation": "All 112 gap cells equal weight; temporal intervals computed after per-member spatial averaging"
+}

@@ -1,0 +1,96 @@
+{
+  "pdf": "F:\\Code\\SCI\\DMGSR\\paper\\figures\\Fig01_data_protocol.pdf",
+  "auditable": true,
+  "verdict": "FIX BEFORE DELIVERY",
+  "page_count": 1,
+  "visible_text_box_count": 37,
+  "text_trace_count": 37,
+  "stroke_path_count": 32,
+  "filled_region_count": 34,
+  "image_region_count": 2,
+  "summary": {
+    "fail": 1,
+    "warn": 2,
+    "contained_fill_overlays": 0,
+    "contained_image_overlays": 0
+  },
+  "thresholds": {
+    "text_inset_pt": 0.6,
+    "min_overlap_ratio": 0.05,
+    "clipping_tolerance_pt": 0.5
+  },
+  "findings": [
+    {
+      "severity": "FAIL",
+      "kind": "text-stroke",
+      "page": 1,
+      "message": "Text is crossed by 1 stroked path(s)",
+      "text": "Longitude (°E)",
+      "text_bbox": [
+        117.55393981933594,
+        193.31349182128906,
+        162.375,
+        200.31349182128906
+      ],
+      "other_text": null,
+      "other_bbox": [
+        51.84000015258789,
+        199.29598999023438,
+        228.0959930419922,
+        205.05599975585938
+      ],
+      "object_count": 1,
+      "object_indexes": [
+        38
+      ]
+    },
+    {
+      "severity": "WARN",
+      "kind": "text-fill-edge",
+      "page": 1,
+      "message": "Text partially overlaps the edge of 1 filled region(s)",
+      "text": "Longitude (°E)",
+      "text_bbox": [
+        117.55393981933594,
+        193.31349182128906,
+        162.375,
+        200.31349182128906
+      ],
+      "other_text": null,
+      "other_bbox": [
+        51.84000015258789,
+        199.29598999023438,
+        228.0959930419922,
+        205.05599975585938
+      ],
+      "object_count": 1,
+      "object_indexes": [
+        29000
+      ]
+    },
+    {
+      "severity": "WARN",
+      "kind": "text-image-edge",
+      "page": 1,
+      "message": "Text partially overlaps the edge of 1 raster image(s)",
+      "text": "Longitude (°E)",
+      "text_bbox": [
+        117.55393981933594,
+        193.31349182128906,
+        162.375,
+        200.31349182128906
+      ],
+      "other_text": null,
+      "other_bbox": [
+        51.84000015258789,
+        199.44000244140625,
+        228.239990234375,
+        205.1999969482422
+      ],
+      "object_count": 1,
+      "object_indexes": [
+        1
+      ]
+    }
+  ]
+}

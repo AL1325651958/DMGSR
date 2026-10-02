@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="518.4pt" height="252pt" viewBox="0 0 518.4 252" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-09-12T01:00:29.262168</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.10.9, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 252 
+L 518.4 252 
+L 518.4 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="patch_2">
+    <path d="M 54.0432 139.9818 
+L 146.5776 139.9818 
+Q 148.34016 139.9818 148.34016 138.957 
+L 148.34016 97.965 
+Q 148.34016 96.9402 146.5776 96.9402 
+L 54.0432 96.9402 
+Q 52.28064 96.9402 52.28064 97.965 
+L 52.28064 138.957 
+Q 52.28064 139.9818 54.0432 139.9818 
+z
+" clip-path="url(#pba046e8ed8)" style="fill: #e7edf1; stroke: #8e9aa4; stroke-width: 0.7; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_3">
+    <path d="M 177.4224 102.8328 
+L 287.5824 102.8328 
+Q 289.34496 102.8328 289.34496 101.808 
+L 289.34496 65.94 
+Q 289.34496 64.9152 287.5824 64.9152 
+L 177.4224 64.9152 
+Q 175.65984 64.9152 175.65984 65.94 
+L 175.65984 101.808 
+Q 175.65984 102.8328 177.4224 102.8328 
+z
+" clip-path="url(#pba046e8ed8)" style="fill: #f0e5d7; stroke: #8e9aa4; stroke-width: 0.7; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_4">
+    <path d="M 177.4224 175.8498 
+L 287.5824 175.8498 
+Q 289.34496 175.8498 289.34496 174.825 
+L 289.34496 128.709 
+Q 289.34496 127.6842 287.5824 127.6842 
+L 177.4224 127.6842 
+Q 175.65984 127.6842 175.65984 128.709 
+L 175.65984 174.825 
+Q 175.65984 175.8498 177.4224 175.8498 
+z
+" clip-path="url(#pba046e8ed8)" style="fill: #eae4f0; stroke: #8e9aa4; stroke-width: 0.7; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_5">
+    <path d="M 318.4272 143.8248 
+L 391.1328 143.8248 
+Q 392.89536 143.8248 392.89536 142.8 
+L 392.89536 94.122 
+Q 392.89536 93.0972 391.1328 93.0972 
+L 318.4272 93.0972 
+Q 316.66464 93.0972 316.66464 94.122 
+L 316.66464 142.8 
+Q 316.66464 143.8248 318.4272 143.8248 
+z
+" clip-path="url(#pba046e8ed8)" style="fill: #ddedec; stroke: #8e9aa4; stroke-width: 0.7; stroke-linejoin: miter"/>
+   </g>
+   <g id="patch_6">
+    <path d="M 419.7744 143.8248 
+L 490.2768 143.8248 
+Q 492.03936 143.8248 492.03936 142.8 
+L 492.03936 94.122 
+Q 492.03936 93.0972 490.2768 93.0972 
+L 419.7744 93.0972 
+Q 418.01184 93.0972 418.01184 94.122 
+L 418.01184 142.8 
+Q 418.01184 143.8248 419.7744 143.8248 
+z
+" clip-path="url(#pba046e8ed8)" style="fill: #ddedec; stroke: #8e9aa4; stroke-width: 0.7; stroke-linejoin: miter"/>
+   </g>
+   <g id="text_1">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(58.389697 112.733578)">Observed radiation + mask</text>
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(79.108056 120.137391)">Daily weather</text>
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(60.044541 127.725609)">Coarse monthly reference</text>
+   </g>
+   <g id="text_2">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(195.5424 78.23025)">Spatial U-Net ensemble</text>
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(183.671931 85.736438)">8 independently fitted members</text>
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(183.0824 93.222281)">Convolutional encoder–decoder</text>
+   </g>
+   <g id="text_3">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(191.713181 142.316672)">Masked temporal diffusion</text>
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(186.788572 149.745422)">12 samples; 64 reverse steps</text>
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(183.182478 157.251609)">Solar residual + graph penalties</text>
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(179.588962 164.839828)">Constraint feedback every 8 steps</text>
+   </g>
+   <g id="text_4">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(335.714297 109.082859)">Mean fusion</text>
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(327.248125 116.486672)">+ residual pooling</text>
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(329.196094 123.972516)">+ spread scaling</text>
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(330.07 131.458359)">2010 calibration</text>
+   </g>
+   <g id="text_5">
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(437.383959 109.083078)">2011 report</text>
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(436.937163 116.486891)">Point errors</text>
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(426.915131 123.993078)">CRPS + coverage</text>
+    <text style="font-size: 7px; font-family: 'Arial', sans-serif" transform="translate(434.406225 131.478922)">Interval width</text>
+   </g>
+   <g id="patch_7">
+    <path d="M 150.28797 105.617536 
+Q 162.000352 95.402693 173.038656 85.775741 
+" style="fill: none; stroke: #657582; stroke-width: 0.8; stroke-linecap: round"/>
+    <path d="M 170.008257 86.561033 
+L 173.038656 85.775741 
+L 171.84865 88.671235 
+" style="fill: none; stroke: #657582; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="patch_8">
+    <path d="M 150.326698 131.263338 
+Q 161.999616 140.878184 172.982153 149.924371 
+" style="fill: none; stroke: #657582; stroke-width: 0.8; stroke-linecap: round"/>
+    <path d="M 171.711009 147.063568 
+L 172.982153 149.924371 
+L 169.930824 149.224804 
+" style="fill: none; stroke: #657582; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="patch_9">
+    <path d="M 291.331498 85.147338 
+Q 303.004416 94.762184 313.986953 103.808371 
+" style="fill: none; stroke: #657582; stroke-width: 0.8; stroke-linecap: round"/>
+    <path d="M 312.715809 100.947568 
+L 313.986953 103.808371 
+L 310.935624 103.108804 
+" style="fill: none; stroke: #657582; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="patch_10">
+    <path d="M 291.331498 150.493662 
+Q 303.004416 140.878816 313.986953 131.832629 
+" style="fill: none; stroke: #657582; stroke-width: 0.8; stroke-linecap: round"/>
+    <path d="M 310.935624 132.532196 
+L 313.986953 131.832629 
+L 312.715809 134.693432 
+" style="fill: none; stroke: #657582; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="patch_11">
+    <path d="M 395.338836 118.461 
+Q 405.454941 118.461 414.67662 118.461 
+" style="fill: none; stroke: #657582; stroke-width: 0.8; stroke-linecap: round"/>
+    <path d="M 411.87662 117.061 
+L 414.67662 118.461 
+L 411.87662 119.861 
+" style="fill: none; stroke: #657582; stroke-width: 0.8; stroke-linecap: round"/>
+   </g>
+   <g id="text_6">
+    <text style="font-size: 6px; font-family: 'Arial', sans-serif; text-anchor: middle" x="272.16" y="192.759" transform="rotate(-0 272.16 192.759)">Graph structure enters through four-neighbour losses and boundary correction, not learned attention.</text>
+   </g>
+  </g>
+ </g>
+ <defs>
+  <clipPath id="pba046e8ed8">
+   <rect x="51.84" y="40.32" width="440.64" height="153.72"/>
+  </clipPath>
+ </defs>
+</svg>

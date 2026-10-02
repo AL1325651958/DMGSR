@@ -1,0 +1,55 @@
+{
+  "protocol": {
+    "task": "Graph Signal Recovery on a four-neighbour grid",
+    "signal": "NASA POWER daily surface shortwave radiation, W/m2",
+    "validation": "2010-2011",
+    "months": 24,
+    "missing_days": 86,
+    "missing_values": 962,
+    "diffusion_training_seeds": [
+      11,
+      22,
+      33
+    ],
+    "evaluated_diffusion_seed": 11,
+    "unet_training_seed": 11,
+    "epochs": 30,
+    "members": 12,
+    "device": "cuda",
+    "mask_source": "outputs\\masked_v9_graph\\masked_ensemble_validation.npz",
+    "selection": "final epoch; no validation tuning"
+  },
+  "diffusion": {
+    "rmse": 72.556640625,
+    "mae": 48.26718521118164,
+    "affected_edge_mae": 33.545928955078125,
+    "missing_laplacian_mae": 80.94334411621094,
+    "observed_max_error": 7.62939453125e-05,
+    "pooled_missing_fraction": 0.012930107302963734,
+    "pooled_rmse": 72.556640625,
+    "pooled_mae": 48.26718521118164,
+    "pooled_crps": 41.12599563598633,
+    "pooled_coverage90": 0.34095633029937744,
+    "pooled_width90": 46.98899841308594,
+    "monthly_rmse": 60.07021178801855,
+    "monthly_mae": 53.5700458685557,
+    "monthly_crps": 47.0179954568545,
+    "monthly_coverage90": 0.37273148183400434,
+    "monthly_width90": 44.05267651875814,
+    "observed_mae": 1.1697407577078897e-05
+  },
+  "spatial_unet": {
+    "rmse": 22.755657196044922,
+    "mae": 17.087820053100586,
+    "affected_edge_mae": 14.638211250305176,
+    "missing_laplacian_mae": 37.89472198486328,
+    "observed_max_error": 0.0
+  },
+  "limitations": [
+    "Single-region verification; not a graph-constraint ablation.",
+    "U-Net input layout, scaling and mask sampling were also corrected.",
+    "U-Net is deterministic: no ensemble uncertainty metrics reported.",
+    "Legacy monthly projection uses 31 rather than valid-day counts; short-month results need re-evaluation.",
+    "Monthly conditioning uses the complete reference monthly field; not observation-only recovery."
+  ]
+}

@@ -1,0 +1,48 @@
+{
+  "pdf": "F:\\Code\\SCI\\DMGSR\\paper\\figures\\Fig01_data_protocol.pdf",
+  "auditable": true,
+  "verdict": "REVIEW REQUIRED",
+  "page_count": 1,
+  "visible_text_box_count": 37,
+  "text_trace_count": 37,
+  "stroke_path_count": 32,
+  "filled_region_count": 34,
+  "image_region_count": 2,
+  "summary": {
+    "fail": 0,
+    "warn": 1,
+    "contained_fill_overlays": 1,
+    "contained_image_overlays": 0
+  },
+  "thresholds": {
+    "text_inset_pt": 0.6,
+    "min_overlap_ratio": 0.05,
+    "clipping_tolerance_pt": 0.5
+  },
+  "findings": [
+    {
+      "severity": "WARN",
+      "kind": "text-fill-edge",
+      "page": 1,
+      "message": "Text partially overlaps the edge of 1 filled region(s)",
+      "text": "not used here",
+      "text_bbox": [
+        459.5030822753906,
+        75.5473403930664,
+        496.1940002441406,
+        81.5473403930664
+      ],
+      "other_text": null,
+      "other_bbox": [
+        316.2239990234375,
+        36.86399841308594,
+        492.4800109863281,
+        149.75999450683594
+      ],
+      "object_count": 1,
+      "object_indexes": [
+        16000
+      ]
+    }
+  ]
+}

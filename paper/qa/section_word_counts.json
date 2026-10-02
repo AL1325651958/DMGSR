@@ -1,0 +1,24 @@
+{
+  "counting_note": "Approximate prose-token counts including captions and mathematical labels, excluding bibliography; reorganized section names are not directly paired.",
+  "received": {
+    "Introduction": 444,
+    "Related Work": 434,
+    "Methods": 939,
+    "Experiments": 1380,
+    "Discussion": 493,
+    "Conclusion": 157,
+    "References": 0
+  },
+  "draft": {
+    "Introduction": 492,
+    "Data and evaluation design": 483,
+    "Methods": 1391,
+    "Results": 1040,
+    "Discussion": 666,
+    "Conclusions": 87,
+    "Data availability": 41,
+    "Code availability": 42,
+    "Author contributions, funding and competing interests": 27,
+    "Declaration of generative AI assistance": 47
+  }
+}

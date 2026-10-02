@@ -1,0 +1,68 @@
+{
+  "case": "2013-07",
+  "gap_length_days": 7,
+  "gap_start_zero_based": 8,
+  "missing_days_one_based": [
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "members": 12,
+  "chunk_size": 8,
+  "chunk_schedule_inclusive_zero_based": [
+    [
+      56,
+      63
+    ],
+    [
+      48,
+      55
+    ],
+    [
+      40,
+      47
+    ],
+    [
+      32,
+      39
+    ],
+    [
+      24,
+      31
+    ],
+    [
+      16,
+      23
+    ],
+    [
+      8,
+      15
+    ],
+    [
+      0,
+      7
+    ]
+  ],
+  "seed": 1162,
+  "model": "F:\\Code\\SCI\\DMGSR\\outputs\\diffusion_v4_temporal\\model_11.pt",
+  "solar_prior": "F:\\Code\\SCI\\DMGSR\\outputs\\diffusion_v4_temporal\\solar_prior.pt",
+  "trace_shape": [
+    8,
+    12,
+    31,
+    10,
+    10
+  ],
+  "final_samples_shape": [
+    12,
+    31,
+    10,
+    10
+  ],
+  "monthly_condition": "complete reference product monthly coarse GSR mean",
+  "experiment_type": "controlled reconstruction with hidden truth scored only in the gap"
+}

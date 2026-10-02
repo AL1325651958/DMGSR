@@ -1,0 +1,253 @@
+\documentclass[preprint,12pt,authoryear]{elsarticle}
+\usepackage{amsmath,amssymb,graphicx,booktabs,placeins}
+\usepackage[margin=25mm]{geometry}
+\usepackage[hidelinks]{hyperref}
+\graphicspath{{./}}
+\journal{Solar Energy}
+\newcommand{\wm}{\ensuremath{\mathrm{W\,m^{-2}}}}
+\newcommand{\figfile}[1]{\includegraphics[width=\linewidth]{#1}}
+\begin{document}
+\begin{frontmatter}
+\title{Graph-regularized diffusion and ensemble calibration for probabilistic solar radiation recovery}
+\author{[Author names and affiliations to be supplied]}
+\begin{abstract}
+Recovering missing solar radiation fields requires both accurate spatial predictions and useful uncertainty estimates. We examine a framework combining a spatial U-Net ensemble with masked conditional diffusion, graph-based regularization and empirical spread calibration. Daily NASA POWER radiation over a $10\times10$ East Asian grid provides a controlled reconstruction problem with daily weather and coarse monthly radiation conditions. Network weights were fitted using 2000--2009, calibration parameters were selected using 2010, and a previously inspected 2011 development period supplied 547 artificially hidden day--grid values. After correcting calendar alignment and valid-month energy accounting, fusion achieved a root-mean-square error of 19.77\,\wm\ and a continuous ranked probability score of 11.24\,\wm. These were 5.1\% and 8.9\% lower, respectively, than a separately spread-calibrated U-Net. Empirical coverage of nominal 90\% intervals increased from 85.4\% to 93.2\%, accompanied by wider intervals. A fixed seven-day illustration showed that denoising error was non-monotonic and final constraint processing could improve the mean while reducing ensemble coverage. The findings support complementary evaluation of reconstruction accuracy, reliability and physical consistency. They do not establish a causal benefit of graph regularization or independent observational skill: monthly conditions include information from the complete reference product, reporting is developmental, and the fused ensemble is not strictly non-negative.
+\end{abstract}
+\begin{highlights}
+\item A controlled benchmark separates spatial recovery from uncertainty calibration.
+\item Calendar-aligned fusion reaches 19.77\,\wm\ RMSE on development reporting masks.
+\item Calibrated U-Net provides a direct comparator for the value added by fusion.
+\item Denoising accuracy and ensemble coverage can evolve in different directions.
+\item Reference-conditioned results require independent observational validation.
+\end{highlights}
+\begin{keyword}
+Surface solar radiation \sep Missing-data reconstruction \sep Conditional diffusion \sep Graph regularization \sep Deep ensembles \sep Probabilistic calibration
+\end{keyword}
+\end{frontmatter}
+
+\section{Introduction}
+Solar radiation records underpin the assessment of available solar energy and variability in surface energy supply. Spatially extensive products are valuable where ground observations are sparse, but a gridded estimate is not equivalent to a direct measurement. NASA POWER combines satellite-derived radiation information and meteorological products to provide accessible solar and weather records \citep{powerdata,powerdaily}. When a radiation record is incomplete, a reconstruction should preserve observed information and distinguish well-constrained estimates from uncertain values. A smooth map alone does not establish either property.
+
+Recovery becomes particularly demanding when adjacent locations are missing on consecutive days. Neighbouring observations constrain spatial gradients, while weather predictors and solar geometry describe daily variability. These sources need not resolve the same components of the signal. Spatial smoothing can provide a strong point estimate in coherent fields but may miss local contrasts. A learned predictor can condition on nonlinear weather relationships, while a generative model can represent alternative reconstructions. The relevant question is whether the probabilistic model contributes information beyond a strong spatial predictor, rather than whether it produces visually plausible samples.
+
+Convolutional encoder--decoder networks provide a practical basis for spatial reconstruction. U-Net combines a contracting representation with skip connections that retain local information \citep{ronneberger2015}. Independently fitted neural ensembles represent variation across predictors \citep{lakshminarayanan2017}. Graph signal processing supplies a complementary language for local differences and smoothness through edges and graph Laplacians \citep{shuman2013}. On a regular grid, however, a graph penalty is distinct from a learned graph-attention network. Attributing an improvement to the penalty requires a comparison in which the other architectural and training choices remain unchanged.
+
+Diffusion models learn to recover data from corrupted states \citep{ho2020,song2021}. Conditional score-based imputation demonstrates how observed values can guide a generative reconstruction \citep{tashiro2021}. Atmospheric applications include probabilistic forecasting and residual corrective downscaling \citep{price2025,mardani2023}. These advances motivate diffusion-based radiation recovery but do not guarantee calibrated uncertainty in a different dataset or missingness regime. In particular, imposing constraints during sampling can change ensemble spread as well as the predicted mean.
+
+Probabilistic prediction must therefore be assessed through both reliability and sharpness. Coverage can be increased by widening intervals, while an accurate point estimate can coexist with undercoverage. Proper scoring rules such as the continuous ranked probability score (CRPS) evaluate the predictive distribution against realized outcomes \citep{gneiting2007scores}. Calibration and interval width provide additional diagnostics \citep{gneiting2007calibration}. A useful comparator for calibrated diffusion-based recovery is consequently a spatial ensemble that receives a comparable opportunity for calibration.
+
+Here we evaluate graph-regularized masked diffusion together with a spatial U-Net ensemble for daily surface solar radiation recovery. We use common synthetic masks, freeze existing network weights and separately assess point accuracy, probabilistic scores and sampling trajectories. A calibrated U-Net comparator tests whether fusion adds value beyond widening an accurate spatial ensemble. The design is explicitly reference-conditioned: coarse monthly radiation is known from the complete product. It tests recovery under an informative aggregate constraint, rather than prediction of future weather or reconstruction from sparse observations alone.
+
+\section{Data and evaluation design}
+\subsection{Reference fields and conditioning variables}
+The study domain spans $20$--$30^{\circ}$N and $100$--$110^{\circ}$E on a $10\times10$ radiation grid. The local collection covers 2000--2014. The target is NASA POWER all-sky surface shortwave downward radiation, \texttt{ALLSKY\_SFC\_SW\_DWN}. Daily irradiation in $\mathrm{kWh\,m^{-2}\,day^{-1}}$ is converted to daily mean irradiance by multiplication by $1000/24$, yielding \wm. This unit conversion does not add subdaily information. POWER radiation and meteorological fields originate from satellite products and assimilation systems \citep{powerdata,powerdaily}. We use POWER as the reference product, not station truth.
+
+Daily near-surface temperature (\texttt{T2M}), corrected precipitation (\texttt{PRECTOTCORR}) and cloud amount (\texttt{CLOUD\_AMT}) provide meteorological conditions. The loader linearly remaps fields to the radiation grid when their coordinates differ. This numerical alignment does not increase the effective resolution of the source observations. Each month occupies a 31-day tensor with an explicit valid-day mask; padded days do not enter evaluation or the corrected monthly energy balance.
+
+Coarse monthly radiation conditions are constructed by daily averaging and cosine-latitude-weighted aggregation of non-overlapping $2\times2$ fine-grid blocks. For radiation $x_{di}$ at day $d$, cell $i$, area weight $a_i=\cos\phi_i$, actual month length $D$ and coarse block $\mathcal B_b$,
+\begin{equation}
+c_b=\frac{\sum_{d=1}^{D}\sum_{i\in\mathcal B_b}a_i x_{di}}{D\sum_{i\in\mathcal B_b}a_i}.
+\label{eq:monthly}
+\end{equation}
+The complete reference field supplies this condition, including values later hidden by the synthetic mask. This information is part of the stated problem. It prevents interpreting the experiment as an observation-only gap-filling benchmark.
+
+\subsection{Chronological partitions and artificial gaps}
+Network fitting uses 2000--2009. Frozen-weight reevaluation uses 2010 for calibration and 2011 for reporting (Fig.~\ref{fig:data}). The reporting year and later years were inspected during earlier development, so 2011 is a development report period rather than an untouched test set. The 2012--2014 data are not used for parameter selection or headline results in the present analysis.
+
+Aggregate evaluation reuses one stored synthetic block-gap mask per month for every method. These masks were generated with contiguous durations of one to seven days and rectangular side lengths sampled from two to five cells. Only valid, artificially hidden cells are scored. Calibration contains 415 day--grid values across 12 months, and reporting contains 547 across the following 12 months. Their spatial and temporal dependence means these counts are not numbers of independent observations.
+
+A separate illustration hides a central $4\times4$ block on 9--15 July 2011, giving 112 missing values. Dates and location were fixed before rendering the process comparison. This mask differs from the stored July mask in the aggregate evaluation. The illustration examines temporal fidelity and denoising behavior; its scores are not substituted into pooled report results.
+
+\begin{figure}[htbp]\centering\figfile{Fig01_data_protocol.png}
+\caption{Data domain and chronological protocol. (a) Arithmetic daily mean reference radiation at each cell during the 2000--2009 fitting period, displayed on the native grid without spatial interpolation. (b) Network fitting, calibration and development reporting occupy successive periods. The archive extends to 2014, but later data do not contribute to the present headline evaluation. All evaluated gaps are artificial.}\label{fig:data}\end{figure}
+
+\section{Methods}
+\subsection{Framework and notation}
+Let $x\in\mathbb R^{D\times H\times W}$ be a monthly stack of daily fields, $m$ the observation mask and $v$ the valid-day mask. Conditions include $m\odot x$, $m$, daily weather $z$, solar geometry and coarse monthly radiation $c$. The task is to construct an ensemble where $v=1$ and $m=0$, retaining known radiation values. Two separately trained branches supply spatial U-Net and masked temporal diffusion ensembles (Fig.~\ref{fig:architecture}). Their fields are combined after sampling. The diffusion network is not trained on U-Net prediction residuals.
+
+Instead, diffusion learns residuals relative to a solar baseline, while U-Net directly reconstructs daily fields. Fusion subsequently pools centered output deviations around a blended mean. This is an empirical predictive ensemble, not an exact Bayesian posterior or an identifiable decomposition of epistemic and aleatoric uncertainty.
+
+\begin{figure}[htbp]\centering\figfile{Fig02_architecture.png}
+\caption{Implemented framework. Radiation, masks, daily meteorology and coarse monthly reference conditions feed two branches. U-Net is a convolutional encoder--decoder. Diffusion uses solar-normalized residuals, four-neighbour structural penalties and chunk-boundary corrections. Frozen ensembles are combined by mean fusion and spread scaling selected in 2010. The diagram does not imply learned graph attention, graph pooling or autoregressive observation assimilation.}\label{fig:architecture}\end{figure}
+
+\subsection{Solar baseline and residual representation}
+Daily extraterrestrial horizontal radiation $R_a$ is computed from latitude and day of year using the FAO-56 equations \citep{allen1998}. A fine-grid calendar-month template is fitted from training-period ratios of radiation to $\max(R_a,20\,\wm)$. Multiplying this template by daily $R_a$ gives a seasonal field, which is rescaled within each coarse block to match $c$. This produces a day-varying baseline $b$.
+
+With $f=\max(R_a,20\,\wm)/(400\,\wm)$ and training-period root-mean-square normalized residual scale $s_r$, the diffusion target is
+\begin{equation}r_0=\frac{x-b}{s_r f}.\label{eq:residual}\end{equation}
+Valid-day masks accompany the representation throughout training and sampling. The baseline is a solar-conditioned climatological construction, not measured clear-sky radiation or an independently validated surface-irradiance envelope.
+
+\subsection{Masked temporal diffusion}
+The denoiser predicts velocity rather than noise directly \citep{salimans2022}. At noise level $t$,
+\begin{align}
+r_t&=\sqrt{\bar\alpha_t}r_0+\sqrt{1-\bar\alpha_t}\epsilon,\qquad\epsilon\sim\mathcal N(0,I),\\
+v_t&=\sqrt{\bar\alpha_t}\epsilon-\sqrt{1-\bar\alpha_t}r_0.
+\end{align}
+The implementation uses 64 cosine-scheduled levels and a $10^{-6}$ lower numerical floor on $\bar\alpha_t$. Given predicted velocity $v_\theta$, the clean estimate is
+\begin{equation}
+\widehat r_0=\sqrt{\bar\alpha_t}r_t-\sqrt{1-\bar\alpha_t}v_\theta.
+\label{eq:recover}\end{equation}
+This velocity recovery differs from a noise-prediction DDPM mean formula.
+
+The network contains a width-24 input projection, four residual blocks and an output projection. Each block combines spatial $1\times5\times5$ and temporal $3\times1\times1$ convolutions with SiLU activations. Inputs comprise noisy residuals, four monthly channels, three weather channels, observed normalized residuals, observation and valid-day masks, diffusion time and sine/cosine within-month coordinates. Monthly channels encode expanded coarse radiation, seasonal sine and cosine, and a monthly summary of the solar baseline. The whole month is denoised jointly, without an observed previous-day autoregressive state.
+
+The principal loss is valid-cell mean-squared velocity error, with extra weight on missing cells. The saved training configuration uses missing-cell weight coefficient 4, masked gradient coefficient 0.08 and graph-structure coefficient 0.05. AdamW used learning rate $3\times10^{-4}$ for 30 epochs. Three diffusion fitting seeds were saved; this analysis evaluates the seed-11 checkpoint only. Its 12 generated samples form a sampling ensemble, not an ensemble across independently fitted diffusion networks.
+
+\subsection{Graph penalties and constraint feedback}
+The graph is the fixed four-neighbour grid. At an interior cell,
+\begin{equation}(Lq)_i=4q_i-\sum_{j\in\mathcal N_4(i)}q_j.\end{equation}
+Domain boundaries use replicated values. The graph penalty is half the sum of mean absolute horizontal and vertical edge errors plus half the masked mean absolute Laplacian error. A separate gradient loss penalizes squared edge differences touching missing cells. These regularize a convolutional model: no distance-adaptive adjacency, learned attention, graph pooling or graph unpooling is implemented.
+
+During reverse sampling, known cells are restored through appropriately noised observed residuals. Reconstructed radiation is clipped to non-negative values and an operational ceiling
+\begin{equation}U=\max\{50\,\wm,1.05\max(R_a,20\,\wm)\}.\end{equation}
+This is a solar-geometry heuristic, not a demonstrated universal physical bound. Every eight steps, a partial monthly projection allocates the target block energy remaining after subtraction of the observed contribution. Actual valid month lengths, rather than padded lengths, determine the energy target.
+
+The correction uses ensemble variance $\sigma^2$ and gain
+\begin{equation}
+k=\operatorname{clip}\left(\frac{\sigma^2}{\sigma^2+(s_r f)^2},0.15,0.85\right).
+\end{equation}
+A progress factor increases the correction toward the end of sampling. A graph-boundary update then moves missing boundary cells toward adjacent context; known values are restored and a consistent noise direction is recomputed. The underlying transition follows implicit diffusion sampling \citep{song2021}, with additional observation and constraint operations. Final processing adds bounded monthly projections and spatial boundary propagation. Finite alternating projections do not establish exact simultaneous satisfaction of every constraint.
+
+\subsection{Spatial U-Net ensemble}
+The spatial branch is a compact convolutional U-Net with widths 32, 64 and 128 and bilinear decoder upsampling. Encoder blocks use group normalization, and convolutional blocks use SiLU. Ten channels contain masked radiation, its mask, a local observed-neighbour average, cloud fraction, scaled temperature and precipitation, a monthly summary, the solar baseline and two empirical weather--radiation features. All conditions are indexed by the same absolute calendar month.
+
+Eight members were fitted with initialization seeds 100--107 for 20 epochs using AdamW at $3\times10^{-4}$. Training sampled daily fields and artificial rectangles from the fitting months. The loss combined smooth-$L_1$ radiation error and a graph-structure term. The network is inspired by U-Net \citep{ronneberger2015}; it does not reproduce the original biomedical architecture or objective. Inference clips predictions to $[0,400]$\,\wm\ and copies observed values back. Differences across independently fitted members supply a deep ensemble \citep{lakshminarayanan2017}.
+
+\subsection{Fusion and empirical calibration}
+Let $u^{(k)}$, $k=1,\ldots,K$, and $d^{(m)}$, $m=1,\ldots,M$, denote U-Net and diffusion members, with $K=8$, $M=12$ and means $\bar u$, $\bar d$. Define
+\begin{equation}\mu_w=w\bar u+(1-w)\bar d.\end{equation}
+The fused ensemble concatenates two groups of centered deviations:
+\begin{align}
+\mathcal S_{w,\gamma}={}&\left\{\mu_w+\gamma w(u^{(k)}-\bar u)\right\}_{k=1}^{K}\nonumber\\
+&\cup\left\{\mu_w+\gamma(1-w)(d^{(m)}-\bar d)\right\}_{m=1}^{M}.
+\label{eq:fusion}\end{align}
+Its arithmetic mean equals $\mu_w$. Equal member masses give the two deviation groups masses $8/20$ and $12/20$. Thus $w$ controls the mean and deviation amplitudes, not a conventional mixture probability between the original predictive distributions.
+
+Calibration searches $w\in\{0,0.05,\ldots,1\}$ and $\gamma\in\{0.5,0.75,\ldots,8\}$ on the 2010 missing values. The objective is
+\begin{equation}J=\mathrm{CRPS}+\lambda|\widehat C_{0.9}-0.9|,\qquad\lambda=8\,\wm.\label{eq:objective}\end{equation}
+The coverage penalty is heuristic; the combined objective is not claimed to be a proper scoring rule. A U-Net-only comparator, $\bar u+\gamma_u(u^{(k)}-\bar u)$, receives the same spread grid and objective. This tests fusion against calibration of an accurate spatial ensemble. Neither procedure supplies a conformal guarantee. No additional clipping is applied after Eq.~\ref{eq:fusion}; physical-support violations are reported rather than hidden.
+
+\subsection{Comparators, metrics and implementation checks}
+Two non-neural comparators use the same radiation observations and masks. Neighbour propagation performs eight four-neighbour averaging passes. Laplacian smoothing performs 40 passes with relaxation coefficient 0.85. Both retain known values. These are iterative grid baselines, not full variogram-based kriging or true distance-weighted interpolation. The main comparison includes both, raw diffusion, raw U-Net, calibrated U-Net and fusion. Earlier compact recurrent, transformer and generative baselines are excluded from headline comparisons because their evaluation conditions were not reconciled with this corrected protocol.
+
+RMSE and MAE are evaluated from ensemble means, giving equal weight to each missing day--grid value. For ensemble $s_1,\ldots,s_E$ and reference $y$,
+\begin{equation}
+\mathrm{CRPS}=\frac{1}{E}\sum_e|s_e-y|-\frac{1}{2E^2}\sum_e\sum_f|s_e-s_f|.
+\end{equation}
+Empirical 5th and 95th percentiles define the central 90\% interval. We report coverage and mean width. For a one-member deterministic prediction, CRPS equals absolute error; its zero-width interval does not constitute a useful uncertainty estimate. Reliability curves use nominal central probabilities from 0.1 to 0.9. For spatial-mean time series, each member is averaged first and quantiles are computed across these averages.
+
+A paired month-block bootstrap resamples the 12 report months 2,000 times with replacement. Each draw retains every missing cell and paired prediction in a sampled month, and pooled RMSE and CRPS differences are recomputed. Percentile intervals summarize fusion minus calibrated U-Net. These are descriptive intervals conditional on fitted models and selected parameters; they omit calibration-selection uncertainty, between-fitting-seed variation and earlier inspection of the reporting period.
+
+Two implementation inconsistencies were corrected before reevaluation. U-Net weather and prior fields now use absolute calendar indices rather than validation-local positions. Partial projection now uses valid month lengths instead of 31-day padding. A constant 28-day field check verified the corrected energy conversion. Reference alignment, finite outputs, observed-value preservation and the fused-mean identity were checked numerically. Inference used PyTorch 2.14.0 with CUDA on an NVIDIA GeForce RTX 3070 Laptop GPU. We retained network weights and reselected calibration parameters on corrected 2010 outputs.
+
+\section{Results}
+\subsection{Fusion improved the matched development scores}
+Fusion produced the lowest pooled errors among the reconciled comparators (Table~\ref{tab:main}; Fig.~\ref{fig:skill}). Report-period RMSE was 19.77\,\wm, compared with 24.51 for diffusion and 20.84 for U-Net. Spread calibration left the U-Net mean unchanged. The fusion improvement over calibrated U-Net was 1.07\,\wm, or 5.1\%. Fusion CRPS was 11.24\,\wm, compared with 12.34 for calibrated U-Net, an 8.9\% reduction. Raw U-Net had slightly lower CRPS than calibrated U-Net, showing that widening intervals to improve coverage need not improve the overall distributional score.
+
+Laplacian smoothing remained competitive with diffusion in point accuracy, with respective RMSE values of 24.25 and 24.51\,\wm. Thus diffusion alone did not dominate spatial recovery. The evidence instead supports a gain from the particular calibrated combination under the supplied conditions. Paired month-bootstrap intervals for fusion minus calibrated U-Net were $[-2.04,-0.36]$\,\wm\ for RMSE and $[-1.66,-0.55]$\,\wm\ for CRPS. These describe available-month variability, not confirmatory uncertainty from an independent test population.
+
+\begin{table}[htbp]\centering\small
+\caption{Matched 2011 development results on 547 missing values. Errors and width are in \wm. Coverage refers to central 90\% intervals. Deterministic methods do not provide meaningful predictive intervals.}\label{tab:main}
+\begin{tabular}{lrrrrr}\toprule
+Method & RMSE & MAE & CRPS & Coverage (\%) & Width\\\midrule
+Neighbour propagation&33.89&22.86&22.86&---&---\\
+Laplacian smoothing&24.25&18.02&18.02&---&---\\
+Diffusion&24.51&18.81&14.46&58.9&40.11\\
+U-Net&20.84&15.96&12.27&58.5&33.06\\
+Calibrated U-Net&20.84&15.96&12.34&85.4&66.11\\
+Fusion&\textbf{19.77}&\textbf{15.15}&\textbf{11.24}&93.2&81.83\\\bottomrule
+\end{tabular}\end{table}
+\begin{figure}[htbp]\centering\figfile{Fig03_matched_skill.png}
+\caption{Skill under matched reporting masks. (a) Pooled RMSE of the ensemble mean. (b) Pooled empirical CRPS. Bars describe the same 547 missing values, not averages over independent fitting seeds; no across-seed error bars are implied. CRPS equals MAE for deterministic comparators. Paired month-block intervals for the principal fusion comparison are reported in the text.}\label{fig:skill}\end{figure}
+
+\subsection{Calibration increased coverage and interval width}
+Raw neural ensembles were underdispersed. Their nominal 90\% intervals covered approximately 59\% of missing reporting values (Fig.~\ref{fig:reliability}). U-Net scaling increased coverage to 85.4\%; fusion reached 93.2\%. Mean interval widths were 66.11 and 81.83\,\wm, respectively. Fusion therefore improved coverage with intervals 23.8\% wider than calibrated U-Net. Its lower CRPS supplies evidence beyond the coverage increase alone.
+
+The corrected calibration search selected $w=0.80$ and $\gamma=4.25$, whereas U-Net-only scaling selected $\gamma_u=2.00$ (Fig.~\ref{fig:search}). These were frozen before computing the present report scores. The high U-Net mean weight is consistent with its stronger standalone point recovery. The search surface exposes dependence on both parameters; it does not establish transferability to another region, product or missingness regime.
+
+\begin{figure}[htbp]\centering\figfile{Fig04_reliability.png}
+\caption{Reliability and sharpness. (a) Observed coverage against nominal central interval probability on reporting gaps; the diagonal denotes nominal agreement. (b) Mean 90\% interval width against coverage, with a horizontal reference at 0.9. All methods use the same 547 targets. The empirical summaries are not calibration guarantees or independent-binomial confidence statements.}\label{fig:reliability}\end{figure}
+\begin{figure}[htbp]\centering\figfile{Fig05_calibration_search.png}
+\caption{Calibration using 2010 only. (a) Objective surface over U-Net weight and spread multiplier; the cross marks $(0.80,4.25)$. (b) The same objective for U-Net-only scaling, with selected multiplier 2.00 indicated. The objective combines CRPS with a coverage penalty and is not itself claimed to be a proper score. Reporting data do not enter these searches.}\label{fig:search}\end{figure}
+
+\subsection{Monthly results exposed heterogeneous difficulty}
+Monthly diagnostics showed variation hidden by a pooled score (Fig.~\ref{fig:months}). Each month contributed a different number of missing values because duration and rectangle size varied. Pooled metrics weight months by missing-cell count, whereas the monthly curves display one point per month. The paired bootstrap retained these blocks instead of treating grid values as independent replicates.
+
+These results do not isolate seasonal or gap-length effects. Calendar month, reference radiation, weather and sampled missingness vary together, and only one stored mask realization is available per month. The curves therefore expose heterogeneity and evaluation support. A controlled missingness analysis would require several matched masks at each duration and area within comparable weather conditions.
+
+\begin{figure}[htbp]\centering\figfile{Fig06_monthly_heterogeneity.png}
+\caption{Report-period heterogeneity. (a) Missing-cell RMSE for each reporting month; calibrated and raw U-Net share their point prediction. (b) Missing day--grid counts. Masks are identical across methods within each month. This descriptive comparison cannot separate seasonal effects from differences in duration, area or weather.}\label{fig:months}\end{figure}
+
+\subsection{A fixed gap illustrated remaining reconstruction errors}
+The seven-day July illustration exposed differences that were obscured by full-field maps (Fig.~\ref{fig:case}). Known cells were identical across methods by construction; relevant spatial differences occurred inside the missing block. The U-Net-dominated fusion followed the late-gap rise in block-mean radiation more closely than diffusion. Remaining within-block discrepancies showed that recovering broad temporal evolution did not imply accurate reconstruction of every spatial contrast.
+
+The illustrative fusion was recomputed with the calibration pair selected above while retaining the independently saved members for this case. The case did not select that pair. Its interval is calculated from member block averages, not by averaging cellwise interval endpoints. It complements the aggregate comparison but cannot replace the reporting experiment.
+
+\begin{figure}[htbp]\centering\figfile{Fig07_spatiotemporal_case.png}
+\caption{Fixed seven-day illustration. (a--c) Reference, diffusion mean and recalibrated fusion mean on 12 July 2011, with a common radiation scale and native-grid cells. The rectangle marks the $4\times4$ area hidden on 9--15 July. (d) Arithmetic radiation means over that block; shading is the empirical 5th--95th percentile of fused member averages. This 112-value illustration uses a different mask from aggregate reporting and is not pooled into Table~\ref{tab:main}.}\label{fig:case}\end{figure}
+
+\subsection{Denoising and final processing had different effects}
+Intermediate diffusion outputs showed non-monotonic error evolution (Fig.~\ref{fig:trajectory}). RMSE fell from 48.31\,\wm\ after eight steps to 42.72 after 40, then increased to 44.67 after 64. Final constraint and spatial processing reduced it to 37.70\,\wm. These are intermediate estimates from one actual sampling run, not separately optimized samplers with different step budgets.
+
+The final processing also reduced nominal 90\% coverage from 60.7\% to 44.6\%. A more accurate mean therefore coexisted with a less reliable uncalibrated interval. Every eight-step output already included constraint feedback, so the trace does not isolate neural denoising from graph or monthly corrections. Nor does it establish optimal stopping at 40 steps. A changed stopping rule would require separate calibration and validation. The observation supports evaluating point and probabilistic behavior together when constraining generation.
+
+\begin{figure}[htbp]\centering\figfile{Fig08_diffusion_trajectory.png}
+\caption{Actual diffusion trajectory in the fixed July gap. (a) RMSE of the 12-member mean after each eight-step chunk. (b) Empirical central 90\% coverage. Orange segments distinguish final constraint and spatial postprocessing. All 112 missing values are scored at every stage. This single-checkpoint sampling realization includes neither fusion nor post-hoc spread scaling, and is not a graph ablation or step-budget optimization.}\label{fig:trajectory}\end{figure}
+\FloatBarrier
+
+\section{Discussion}
+\subsection{The value and limits of ensemble fusion}
+The results favor combining an accurate spatial predictor with an explicitly evaluated distributional correction. Fusion improved pooled RMSE and CRPS relative to a calibrated U-Net under the available reporting masks. This comparator is more informative than evaluating a calibrated generator only against deterministic predictions: the observed gain is not explained simply by granting one model an interval while withholding calibration from the other.
+
+The gain is nevertheless specific to the branches, objective and available conditions. A U-Net mean weight of 0.80 indicates that spatial prediction supplies most of the fused central estimate. Diffusion may contribute complementary deviations, but this construction does not identify a causal or probabilistic decomposition. A different residual model or more flexible spatial calibration might provide comparable benefits. The evidence supports this empirical combination, rather than establishing diffusion as the necessary mechanism of improvement.
+
+\subsection{What graph regularization means here}
+Graph signal processing motivates local differences and Laplacian structure \citep{shuman2013}. Our implementation uses them in losses and boundary corrections on a fixed grid. It does not learn wind-aligned connections or operate on an irregular station network. Spatial convolutions and graph penalties also share local information, so attribution requires matched training with the penalties removed.
+
+No controlled graph ablation is available in this record. Earlier changes to inputs, normalization, masks and architecture prevent treating historical model differences as a clean graph-effect experiment. We therefore report no percentage improvement attributable to graph regularization. The competitive Laplacian baseline also argues for retaining simple structural comparators when assessing neural recovery.
+
+\subsection{Reliability, sharpness and physical support}
+A plausible ensemble should not automatically be called calibrated. Both raw neural methods undercovered the reporting targets. Spread adjustment improved coverage but widened intervals, and agreement at one nominal level did not characterize the entire distribution. These trade-offs reflect the distinction between calibration and sharpness \citep{gneiting2007calibration}. Fusion's lower CRPS is encouraging; U-Net-only scaling slightly worsened CRPS, illustrating that the coverage-penalized objective can favor a different balance from CRPS alone.
+
+Physical support remains unresolved after fusion. Component samplers restrict radiation, but scaling centered deviations can place fused members below zero. In the report ensemble, 0.95\% of the 10,940 missing-cell member values were negative. They were retained in scoring to avoid silently changing the calibrated distribution. The final ensemble therefore cannot be described as strictly physically constrained. Clipping or projection after calibration would define a different forecast distribution and should be followed by reevaluation and, where appropriate, recalibration.
+
+The trajectory adds a further limitation: constraints can contract ensemble spread while improving its mean. Velocity prediction and implicit sampling supply the generative procedure \citep{ho2020,song2021,salimans2022}, but subsequent corrections alter its output distribution. Their contribution should be judged by paired accuracy, reliability and conservation diagnostics rather than visual smoothness or the assumption that additional steps always improve recovery.
+
+\subsection{Boundaries of the development design}
+The strongest information boundary is the monthly condition. It contains missing-value information because it comes from the complete reference product. Such a design is appropriate for a task with an independently available aggregate, but this experiment does not establish that availability operationally. Evaluation should compare complete-reference conditions with independent, noisy and partially observed aggregates and measure sensitivity to their errors.
+
+Reference and predictor fields also share product-generation systems. Agreement with POWER measures within-product recovery, not independent observational accuracy. The single domain and small set of artificial masks restrict generalization across climates, resolutions and missingness mechanisms. Real missingness may depend on weather or retrieval conditions that random rectangles do not reproduce. Independent station records and externally defined missing events are needed before inferring operational solar-resource benefits.
+
+Finally, the report period influenced earlier development, and only one calibration year and one diffusion fitting seed are evaluated. Month-block resampling addresses some dependence but not model-selection effects or training variability. A confirmatory study should freeze the corrected pipeline, reserve a new region or period, repeat fitting and mask generation, and compare independently implemented probabilistic imputers such as CSDI \citep{tashiro2021}. Present results do not justify climate-scenario, daily CMIP6 downscaling or solar-power forecasting claims.
+
+\section{Conclusions}
+We evaluated graph-regularized masked diffusion, spatial U-Net ensembles and empirical fusion for daily solar radiation recovery. Corrected calendar alignment and month-length accounting yielded lower development RMSE and CRPS for fusion than for a calibrated spatial comparator, with wider intervals and coverage closer to the nominal level. Actual denoising traces showed that improved point accuracy can coincide with reduced coverage. The framework supports studying reconstruction and uncertainty under known monthly conditions. Its deployment value remains conditional on independent observations, physically supported calibration and controlled evaluation of graph regularization.
+
+\section*{Data availability}
+Source radiation and meteorological products are accessible through NASA POWER \citep{powerdaily}. The accompanying draft package contains corrected ensembles, masks, calibration searches, metric tables and figure source data. A permanent public repository identifier for this study remains to be supplied before submission.
+\section*{Code availability}
+The package includes scripts for frozen-weight reevaluation, calibration, bootstrap summaries and all eight main figures. Reproducing inference additionally requires the source project, saved weights and downloaded POWER fields. The public code and weight release location remains to be supplied by the authors.
+\section*{Author contributions, funding and competing interests}
+\textit{Author input required: supply the actual author list, affiliations, corresponding author, CRediT contributions, funding and competing-interest declarations. No personal or institutional details are inferred in this draft.}
+\section*{Declaration of generative AI assistance}
+An AI assistant was used for grammar correction and project management, as well as manuscript revision, analysis scripting and figure preparation. The authors must review and verify the AI-assisted work before submission.
+
+\begingroup\small
+\begin{thebibliography}{99}
+\bibitem[NASA POWER(2026a)]{powerdata} NASA POWER, 2026a. Data frequently asked questions and product provenance. \url{https://power.larc.nasa.gov/docs/faqs/data/}. Accessed 12 September 2026.
+\bibitem[NASA POWER(2026b)]{powerdaily} NASA POWER, 2026b. Daily API documentation. \url{https://power.larc.nasa.gov/docs/services/api/temporal/daily/}. Accessed 12 September 2026.
+\bibitem[Allen et~al.(1998)]{allen1998} Allen, R.G., Pereira, L.S., Raes, D., Smith, M., 1998. Crop evapotranspiration: Guidelines for computing crop water requirements. FAO Irrigation and Drainage Paper 56. FAO, Rome. \url{https://www.fao.org/4/X0490E/X0490E00.htm}.
+\bibitem[Ronneberger et~al.(2015)]{ronneberger2015} Ronneberger, O., Fischer, P., Brox, T., 2015. U-Net: Convolutional networks for biomedical image segmentation. arXiv:1505.04597. \url{https://arxiv.org/abs/1505.04597}.
+\bibitem[Lakshminarayanan et~al.(2017)]{lakshminarayanan2017} Lakshminarayanan, B., Pritzel, A., Blundell, C., 2017. Simple and scalable predictive uncertainty estimation using deep ensembles. Advances in Neural Information Processing Systems 30. \url{https://arxiv.org/abs/1612.01474}.
+\bibitem[Shuman et~al.(2013)]{shuman2013} Shuman, D.I., Narang, S.K., Frossard, P., Ortega, A., Vandergheynst, P., 2013. The emerging field of signal processing on graphs: Extending high-dimensional data analysis to networks and other irregular domains. IEEE Signal Processing Magazine 30, 83--98. \url{https://doi.org/10.1109/MSP.2012.2235192}.
+\bibitem[Ho et~al.(2020)]{ho2020} Ho, J., Jain, A., Abbeel, P., 2020. Denoising diffusion probabilistic models. Advances in Neural Information Processing Systems 33. \url{https://arxiv.org/abs/2006.11239}.
+\bibitem[Song et~al.(2021)]{song2021} Song, J., Meng, C., Ermon, S., 2021. Denoising diffusion implicit models. International Conference on Learning Representations. \url{https://arxiv.org/abs/2010.02502}.
+\bibitem[Salimans and Ho(2022)]{salimans2022} Salimans, T., Ho, J., 2022. Progressive distillation for fast sampling of diffusion models. International Conference on Learning Representations. \url{https://arxiv.org/abs/2202.00512}.
+\bibitem[Tashiro et~al.(2021)]{tashiro2021} Tashiro, Y., Song, J., Song, Y., Ermon, S., 2021. CSDI: Conditional score-based diffusion models for probabilistic time series imputation. Advances in Neural Information Processing Systems 34. \url{https://arxiv.org/abs/2107.03502}.
+\bibitem[Mardani et~al.(2023)]{mardani2023} Mardani, M., Brenowitz, N., Cohen, Y., et~al., 2023. Residual corrective diffusion modeling for km-scale atmospheric downscaling. arXiv:2309.15214. \url{https://arxiv.org/abs/2309.15214}.
+\bibitem[Price et~al.(2025)]{price2025} Price, I., Sanchez-Gonzalez, A., Alet, F., et~al., 2025. Probabilistic weather forecasting with machine learning. Nature 637, 84--90. \url{https://doi.org/10.1038/s41586-024-08252-9}.
+\bibitem[Gneiting and Raftery(2007)]{gneiting2007scores} Gneiting, T., Raftery, A.E., 2007. Strictly proper scoring rules, prediction, and estimation. Journal of the American Statistical Association 102, 359--378. \url{https://doi.org/10.1198/016214506000001437}.
+\bibitem[Gneiting et~al.(2007)]{gneiting2007calibration} Gneiting, T., Balabdaoui, F., Raftery, A.E., 2007. Probabilistic forecasts, calibration and sharpness. Journal of the Royal Statistical Society, Series B 69, 243--268. \url{https://doi.org/10.1111/j.1467-9868.2007.00587.x}.
+\end{thebibliography}
+\endgroup
+\end{document}

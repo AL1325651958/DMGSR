@@ -1,0 +1,96 @@
+{
+  "case": "2011-07",
+  "case_selection": "Fixed July 2011, central 4x4 gap on days 9-15; no score-based selection",
+  "training_seed": 11,
+  "sampling_seed": 20260911,
+  "members": 12,
+  "missing_values": 112,
+  "checkpoint_sha256": "8b4c42d5fe06f674f32cb31b28c1c63e5e1091ed4e990ed970335c840055f242",
+  "source_model": "masked_v9_graph",
+  "stage_semantics": "8-step chunk estimates after feedback; separate final postprocessing",
+  "reference": "NASA POWER satellite/reanalysis-derived product, not station truth",
+  "monthly_condition": "Complete reference monthly 2x2 coarse averages, including held-out values",
+  "interval": "Empirical 5th-95th quantiles of 12 members; block-mean intervals aggregate each member before quantiles",
+  "spatial_day": 12,
+  "metric_scope": "All 112 missing day-grid cells, equal cell weights",
+  "display": "Native grid, no interpolation, full common color ranges",
+  "limitations": [
+    "Single illustrative validation case, not performance benchmark",
+    "July avoids known short-month projection issue",
+    "No post-hoc spread calibration or U-Net fusion included"
+  ],
+  "metrics": [
+    {
+      "stage": "step_8",
+      "rmse": 48.30809783935547,
+      "mae": 38.28937911987305,
+      "crps": 32.291713891048275,
+      "coverage90": 0.375,
+      "width90": 40.284734981400625
+    },
+    {
+      "stage": "step_16",
+      "rmse": 45.932987213134766,
+      "mae": 36.49839782714844,
+      "crps": 33.87530805407062,
+      "coverage90": 0.14285714285714285,
+      "width90": 14.765550259181428
+    },
+    {
+      "stage": "step_24",
+      "rmse": 43.734352111816406,
+      "mae": 34.87139129638672,
+      "crps": 31.22017403774791,
+      "coverage90": 0.20535714285714285,
+      "width90": 21.486160625730236
+    },
+    {
+      "stage": "step_32",
+      "rmse": 42.74678039550781,
+      "mae": 33.99457931518555,
+      "crps": 28.11185450260601,
+      "coverage90": 0.35714285714285715,
+      "width90": 39.43052835464477
+    },
+    {
+      "stage": "step_40",
+      "rmse": 42.71611785888672,
+      "mae": 33.95331573486328,
+      "crps": 26.809369610888616,
+      "coverage90": 0.5,
+      "width90": 52.99659340381621
+    },
+    {
+      "stage": "step_48",
+      "rmse": 43.629249572753906,
+      "mae": 34.60374069213867,
+      "crps": 26.87824829892506,
+      "coverage90": 0.5714285714285714,
+      "width90": 62.181054922512594
+    },
+    {
+      "stage": "step_56",
+      "rmse": 44.5638542175293,
+      "mae": 35.30630111694336,
+      "crps": 27.251478163022846,
+      "coverage90": 0.5982142857142857,
+      "width90": 67.34066877365112
+    },
+    {
+      "stage": "step_64",
+      "rmse": 44.67460632324219,
+      "mae": 35.39769744873047,
+      "crps": 27.23437605774592,
+      "coverage90": 0.6071428571428571,
+      "width90": 69.16528396606444
+    },
+    {
+      "stage": "final_postprocessed",
+      "rmse": 37.70055389404297,
+      "mae": 30.44083023071289,
+      "crps": 23.958751629742363,
+      "coverage90": 0.44642857142857145,
+      "width90": 46.13372741086141
+    }
+  ]
+}

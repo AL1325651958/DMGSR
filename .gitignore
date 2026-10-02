@@ -1,0 +1,44 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+build/
+dist/
+.venv/
+venv/
+
+# Datasets: re-download with scripts/download_nasa_power_*.py
+data/nasa_power/
+data/cmip6/
+data/**/*.nc
+
+# Model weights and generated arrays.
+# outputs/*/REPORT.md and the JSON protocol/metrics files stay tracked; the
+# binary artifacts are excluded because they were produced before the current
+# projection fixes and are no longer bit-reproducible.
+outputs/**/*.pt
+outputs/**/*.npz
+outputs/**/*.nc
+
+# Large rendered figures: the PNG/PDF/SVG masters in paper/figures are tracked,
+# these are superseded working renders.
+outputs/**/*.tiff
+outputs/**/*.tif
+outputs/**/*.gif
+
+# Bundled LaTeX engine (49 MB). Reproduce with the official tectonic release.
+paper/tools/
+
+# LaTeX build products
+*.aux
+*.log
+*.out
+*.synctex.gz
+*.bbl
+*.blg
+
+# Editors and OS
+.vscode/
+.idea/
+Thumbs.db
+desktop.ini
